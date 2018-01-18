@@ -1,3 +1,16 @@
+/**
+ * Copyright (c) Codice Foundation
+ *
+ * <p>This is free software: you can redistribute it and/or modify it under the terms of the GNU
+ * Lesser General Public License as published by the Free Software Foundation, either version 3 of
+ * the License, or any later version.
+ *
+ * <p>This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;
+ * without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU Lesser General Public License for more details. A copy of the GNU Lesser General Public
+ * License is distributed along with this program and can be found at
+ * <http://www.gnu.org/licenses/lgpl.html>.
+ */
 package org.codice.countrycode.standards.genc;
 
 import java.util.List;
@@ -12,51 +25,37 @@ import javax.xml.bind.annotation.XmlValue;
 @XmlAccessorType(XmlAccessType.FIELD)
 public class GeopoliticalEntityEntry {
 
-  @XmlElement
-  private String entryType;
+  @XmlElement private String entryType;
 
-  @XmlElement
-  private Encoding encoding;
+  @XmlElement private Encoding encoding;
 
-  @XmlElement
-  private String name;
+  @XmlElement private String name;
 
-  @XmlElement
-  private String shortName;
+  @XmlElement private String shortName;
 
-  @XmlElement
-  private List<Division> division;
+  @XmlElement private List<Division> division;
 
-  @XmlElement
-  private String entryDate;
+  @XmlElement private String entryDate;
 
-  @XmlElement
-  private String usRecognition;
+  @XmlElement private String usRecognition;
 
-  @XmlElement
-  private String entryNotesOnNaming;
+  @XmlElement private String entryNotesOnNaming;
 
-  @XmlElement
-  private String fullName;
+  @XmlElement private String fullName;
 
-  @XmlElement
-  private String entryNotesOnTerritory;
+  @XmlElement private String entryNotesOnTerritory;
 
-  @XmlElement
-  private String gencStatus;
+  @XmlElement private String gencStatus;
 
-  @XmlElement
-  private String usRecognitionNote;
+  @XmlElement private String usRecognitionNote;
 
-  @XmlElement
-  private List<LocalShortName> localShortName;
+  @XmlElement private List<LocalShortName> localShortName;
 
   public void setEntryType(String entryType) {
     this.entryType = entryType;
   }
 
-  public void setEncoding(
-      Encoding encoding) {
+  public void setEncoding(Encoding encoding) {
     this.encoding = encoding;
   }
 
@@ -68,8 +67,7 @@ public class GeopoliticalEntityEntry {
     this.shortName = shortName;
   }
 
-  public void setDivision(
-      List<Division> division) {
+  public void setDivision(List<Division> division) {
     this.division = division;
   }
 
@@ -101,8 +99,7 @@ public class GeopoliticalEntityEntry {
     this.usRecognitionNote = usRecognitionNote;
   }
 
-  public void setLocalShortName(
-      List<LocalShortName> localShortName) {
+  public void setLocalShortName(List<LocalShortName> localShortName) {
     this.localShortName = localShortName;
   }
 
@@ -162,37 +159,29 @@ public class GeopoliticalEntityEntry {
   @XmlAccessorType(XmlAccessType.FIELD)
   public static class Encoding {
 
-    @XmlElement
-    private String char2Code;
+    @XmlElement private String char2Code;
 
-    @XmlElement
-    private CodeUriSet char2CodeURISet;
+    @XmlElement private CodeUriSet char2CodeURISet;
 
-    @XmlElement
-    private CodeUriSet char3CodeURISet;
+    @XmlElement private CodeUriSet char3CodeURISet;
 
-    @XmlElement
-    private CodeUriSet numericCodeURISet;
+    @XmlElement private CodeUriSet numericCodeURISet;
 
-    @XmlElement
-    private String char3Code;
+    @XmlElement private String char3Code;
 
     public void setChar2Code(String char2Code) {
       this.char2Code = char2Code;
     }
 
-    public void setChar2CodeURISet(
-        CodeUriSet char2CodeURISet) {
+    public void setChar2CodeURISet(CodeUriSet char2CodeURISet) {
       this.char2CodeURISet = char2CodeURISet;
     }
 
-    public void setChar3CodeURISet(
-        CodeUriSet char3CodeURISet) {
+    public void setChar3CodeURISet(CodeUriSet char3CodeURISet) {
       this.char3CodeURISet = char3CodeURISet;
     }
 
-    public void setNumericCodeURISet(
-        CodeUriSet numericCodeURISet) {
+    public void setNumericCodeURISet(CodeUriSet numericCodeURISet) {
       this.numericCodeURISet = numericCodeURISet;
     }
 
@@ -234,14 +223,11 @@ public class GeopoliticalEntityEntry {
     @XmlAccessorType(XmlAccessType.FIELD)
     public static class CodeUriSet {
 
-      @XmlElement
-      private String codespaceURNBasedShort;
+      @XmlElement private String codespaceURNBasedShort;
 
-      @XmlElement
-      private String codespaceURL;
+      @XmlElement private String codespaceURL;
 
-      @XmlElement
-      private String codespaceURNBased;
+      @XmlElement private String codespaceURNBased;
 
       public void setCodespaceURNBasedShort(String codespaceURNBasedShort) {
         this.codespaceURNBasedShort = codespaceURNBasedShort;
@@ -279,16 +265,13 @@ public class GeopoliticalEntityEntry {
     }
   }
 
-
   @XmlRootElement
   @XmlAccessorType(XmlAccessType.FIELD)
   public static class Division {
 
-    @XmlAttribute
-    private String codeSpace;
+    @XmlAttribute private String codeSpace;
 
-    @XmlValue
-    private String content;
+    @XmlValue private String content;
 
     public void setCodeSpace(String codeSpace) {
       this.codeSpace = codeSpace;
@@ -311,8 +294,7 @@ public class GeopoliticalEntityEntry {
   @XmlAccessorType(XmlAccessType.FIELD)
   public static class LocalShortName {
 
-    @XmlElement
-    private String name;
+    @XmlElement private String name;
 
     public void setName(String name) {
       this.name = name;
