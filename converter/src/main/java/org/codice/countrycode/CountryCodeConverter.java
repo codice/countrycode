@@ -14,8 +14,6 @@
 package org.codice.countrycode;
 
 import com.google.common.collect.ImmutableSet;
-import java.util.Collections;
-import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
 import org.codice.countrycode.converter.Converter;
@@ -48,14 +46,13 @@ public class CountryCodeConverter implements Converter {
       throw new IllegalArgumentException(
           String.format(
               "Provided default standard [%s %s] not supported by default CsvMappingStrategy.",
-              defaultStandard.getName(),
-              defaultStandard.getVersion()));
+              defaultStandard.getName(), defaultStandard.getVersion()));
     }
   }
 
   private boolean mappingStrategyMapsStandard(Standard defaultStandard) {
-    for(Standard standard : mappingStrategy.getMappedStandards()) {
-      if(StandardUtils.equalStandards(standard, defaultStandard)) {
+    for (Standard standard : mappingStrategy.getMappedStandards()) {
+      if (StandardUtils.equalStandards(standard, defaultStandard)) {
         return true;
       }
     }
@@ -89,39 +86,25 @@ public class CountryCodeConverter implements Converter {
 
   private Set<CountryCode> fromProperty(String propertyValue, Standard from, Standard to) {
     if (StandardUtils.equalStandards(from, to)) {
-      Optional<Set<CountryCode>> fromCountryCodeWithValue =
+      Set<CountryCode> fromCountryCodes =
           mappingStrategy
               .getMappings()
               .stream()
+              .flatMap(Set::stream)
               .filter(
-                  mapping ->
-                      mapping
-                          .stream()
-                          .anyMatch(
-                              cc ->
-                                  StandardUtils.hasStandard(cc, from)
-                                      && StandardUtils.containsFormatValue(cc, propertyValue)))
-              .findFirst();
+                  cc ->
+                      StandardUtils.hasStandard(cc, from)
+                          && StandardUtils.containsFormatValue(cc, propertyValue))
+              .collect(Collectors.toSet());
 
-      if (fromCountryCodeWithValue.isPresent()) {
-        return ImmutableSet.copyOf(
-            fromCountryCodeWithValue
-                .get()
-                .stream()
-                .filter(
-                    cc ->
-                        StandardUtils.hasStandard(cc, from)
-                            && StandardUtils.containsFormatValue(cc, propertyValue))
-                .collect(Collectors.toSet()));
-      }
-
-      return Collections.emptySet();
+      return ImmutableSet.copyOf(fromCountryCodes);
     }
 
     Set<CountryCode> mappings = mappingStrategy.getMappingFor(from, propertyValue);
-    return mappings
-        .stream()
-        .filter(cc -> StandardUtils.hasStandard(cc, to))
-        .collect(Collectors.toSet());
+    return ImmutableSet.copyOf(
+        mappings
+            .stream()
+            .filter(cc -> StandardUtils.hasStandard(cc, to))
+            .collect(Collectors.toSet()));
   }
 }

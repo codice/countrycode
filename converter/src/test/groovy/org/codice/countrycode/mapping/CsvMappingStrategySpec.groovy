@@ -163,6 +163,17 @@ class CsvMappingStrategySpec extends Specification {
         thrown(IllegalStateException)
     }
 
+    def 'test single entry in mapping throws exception'() {
+        setup:
+        prepareRegistry()
+
+        when:
+        csvMappingStrategy = new CsvMappingStrategy('test-configs/single_mapping_entry.csv', standardRegistry)
+
+        then:
+        thrown(IllegalStateException)
+    }
+
     def 'test standard missing version throws exception'() {
         setup:
         prepareRegistry()
@@ -236,6 +247,38 @@ class CsvMappingStrategySpec extends Specification {
         then:
         csvMappingStrategy.getMappedStandards().size() == 3
         csvMappingStrategy.getMappedStandards().containsAll(standard1, standard2, standard3)
+    }
+
+    def 'test mapping contains too many country codes'() {
+        setup:
+        prepareRegistry()
+
+        when:
+        csvMappingStrategy = new CsvMappingStrategy('test-configs/too_many_mappings.csv', standardRegistry)
+
+        then:
+        thrown(IllegalStateException)
+    }
+
+    def 'test mapping contains same values returns correct mapping set'() {
+        setup:
+        def cc1 = mockCountryCode(standard1, [(MAPPING_PROPERTY_1): 'value1'])
+        def cc2 = mockCountryCode(standard2, [(MAPPING_PROPERTY_2): 'value2'])
+        def cc3 = mockCountryCode(standard3, [(MAPPING_PROPERTY_3): 'value2'])
+
+        def standard1CountryCodes = [cc1] as Set
+        def standard2CountryCodes = [cc2] as Set
+        def standard3CountryCodes = [cc3] as Set
+
+        prepareRegistry(standard1CountryCodes, standard2CountryCodes, standard3CountryCodes)
+
+        when:
+        csvMappingStrategy = new CsvMappingStrategy('test-configs/same_value_mappings.csv', standardRegistry)
+
+        then:
+        def cc2Mappings = csvMappingStrategy.getMappingFor(standard2, 'value2')
+        cc2Mappings.size() == 2
+        cc2Mappings.containsAll([cc1, cc3])
     }
 
     void prepareRegistry(Set provider1Codes = [], Set provider2Codes = [], Set provider3Codes = []) {

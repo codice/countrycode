@@ -119,39 +119,45 @@ public class CsvMappingStrategy implements MappingStrategy {
 
   @Override
   public Set<CountryCode> getMappingFor(final Standard standard, final String value) {
+    Optional<StandardPropertyPair> pairOptional =
+        configStandardPropertyPairs
+            .stream()
+            .filter(def -> StandardUtils.equalStandards(def.getStandard(), standard))
+            .findFirst();
+
+    if (!pairOptional.isPresent()) {
+      LOGGER.debug(
+          "Standard [{} {}] not found in standards provided mapping configuration [{}].",
+          standard.getName(),
+          standard.getVersion(),
+          filePath);
+      return Collections.emptySet();
+    }
+
+    final StandardPropertyPair standardPropertyPair = pairOptional.get();
+    final Standard configStandard = standardPropertyPair.getStandard();
+    final String configFormat = standardPropertyPair.getMappingProperty();
+
     for (Set<CountryCode> mapping : countryCodeMappings) {
-      Optional<StandardPropertyPair> pairOptional =
-          configStandardPropertyPairs
+      Optional<CountryCode> countryCode =
+          mapping
               .stream()
-              .filter(def -> StandardUtils.equalStandards(def.getStandard(), standard))
+              .filter(
+                  cc ->
+                      cc.getStandard().getFormatNames().contains(configFormat)
+                          && StandardUtils.equalStandards(standard, configStandard)
+                          && StandardUtils.containsFormatValue(cc, value))
               .findFirst();
 
-      if (pairOptional.isPresent()) {
-        final StandardPropertyPair standardPropertyPair = pairOptional.get();
-        Optional<CountryCode> countryCode =
-            mapping
-                .stream()
-                .filter(
-                    cc -> {
-                      String format = standardPropertyPair.getMappingProperty();
-                      Standard defStandard = standardPropertyPair.getStandard();
-
-                      return cc.getStandard().getFormatNames().contains(format)
-                          && StandardUtils.equalStandards(standard, defStandard)
-                          && StandardUtils.containsFormatValue(cc, value);
-                    })
-                .findFirst();
-
-        if (countryCode.isPresent()) {
-          Set<CountryCode> mappingCopy = new HashSet<>(mapping);
-          for(CountryCode code : mapping) {
-            if(StandardUtils.hasStandard(code, standard)) {
-              mappingCopy.remove(code);
-            }
+      if (countryCode.isPresent()) {
+        Set<CountryCode> mappingSet = new HashSet<>();
+        for (CountryCode code : mapping) {
+          if (!StandardUtils.hasStandard(code, standard)) {
+            mappingSet.add(code);
           }
-
-          return ImmutableSet.copyOf(mappingCopy);
         }
+
+        return ImmutableSet.copyOf(mappingSet);
       }
     }
 
@@ -162,7 +168,7 @@ public class CsvMappingStrategy implements MappingStrategy {
     boolean success = true;
 
     if (mappings.isEmpty()) {
-      LOGGER.error("Configuration [{}] must have at least 1 mapping.", filePath.toString());
+      LOGGER.error("Configuration [{}] must have at least 1 mapping.", filePath);
       throw new IllegalStateException(
           String.format("Configuration [%s] must have at least 1 mapping.", filePath.toString()));
     }
@@ -176,6 +182,13 @@ public class CsvMappingStrategy implements MappingStrategy {
         continue;
       }
 
+      if (propertyValues.length > configStandardPropertyPairs.size()) {
+        LOGGER.error(
+            "Mapping error, too many country codes specified for a given mapping: [{}]", mapping);
+        success = false;
+        continue;
+      }
+
       Set<CountryCode> currentMapping = new HashSet<>();
       for (int i = 0; i < propertyValues.length; i++) {
         Standard propertyStandard = configStandardPropertyPairs.get(i).getStandard();
@@ -184,6 +197,7 @@ public class CsvMappingStrategy implements MappingStrategy {
                 .stream()
                 .filter(def -> StandardUtils.equalStandards(def.getStandard(), propertyStandard))
                 .findFirst();
+
         String propertyValue = propertyValues[i].trim();
         if (StringUtils.isEmpty(propertyValue)) {
           LOGGER.debug(
