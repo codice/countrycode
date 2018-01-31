@@ -14,13 +14,11 @@
 package org.codice.countrycode.mapping;
 
 import com.google.common.collect.ImmutableSet;
+
+import java.io.BufferedReader;
 import java.io.IOException;
-import java.net.URI;
-import java.net.URISyntaxException;
-import java.net.URL;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashSet;
@@ -28,7 +26,6 @@ import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.Validate;
 import org.codice.countrycode.converter.MappingStrategy;
@@ -53,13 +50,15 @@ public class CsvMappingStrategy implements MappingStrategy {
 
   private static final int CSV_MAPPINGS_LINE_START = 2;
 
+  private String fileName = DEFAULT_FILE_PATH;
+
+  private InputStream inputStream;
+
   private final List<StandardPropertyPair> configStandardPropertyPairs;
 
   private final Set<Set<CountryCode>> countryCodeMappings;
 
   private final StandardRegistry standardRegistry;
-
-  private final Path filePath;
 
   public CsvMappingStrategy() {
     this(DEFAULT_FILE_PATH);
@@ -75,31 +74,26 @@ public class CsvMappingStrategy implements MappingStrategy {
     countryCodeMappings = new HashSet<>();
     this.standardRegistry = standardRegistry;
 
-    URL fileUrl = this.getClass().getClassLoader().getResource(file);
-    if (fileUrl == null) {
+    fileName = file;
+    inputStream = this.getClass().getClassLoader().getResourceAsStream(file);
+
+    if (inputStream == null) {
       LOGGER.debug("Unable to get file for [{}].", file);
       throw new IllegalArgumentException(String.format("Unable to get file for [%s]", file));
-    }
-
-    try {
-      filePath = Paths.get(new URI(fileUrl.toString()));
-    } catch (URISyntaxException e) {
-      LOGGER.debug("Error creating path to [{}].", file, e);
-      throw new IllegalArgumentException(String.format("Unable to get path for file [%s]", file));
     }
 
     List<String> lines = getFileLines();
     if (!parseConfigStandardsAndMappingProperties(
         lines.subList(CSV_STANDARD_LINE_START, CSV_STANDARD_LINE_END))) {
-      LOGGER.debug("Failed to parse standards from [{}].", filePath.toString());
+      LOGGER.debug("Failed to parse standards from [{}].", file);
       throw new IllegalStateException(
-          String.format("Failed to parse standards from [%s].", filePath.toString()));
+          String.format("Failed to parse standards from [%s].", file));
     }
 
     if (!parseMappings(lines.subList(CSV_MAPPINGS_LINE_START, lines.size()))) {
-      LOGGER.debug("Failed to parse mappings from [{}].", filePath.toString());
+      LOGGER.debug("Failed to parse mappings from [{}].", file);
       throw new IllegalStateException(
-          String.format("Failed to parse mappings from [%s].", filePath.toString()));
+          String.format("Failed to parse mappings from [%s].", file));
     }
   }
 
@@ -130,7 +124,7 @@ public class CsvMappingStrategy implements MappingStrategy {
           "Standard [{} {}] not found in standards provided mapping configuration [{}].",
           standard.getName(),
           standard.getVersion(),
-          filePath);
+          fileName);
       return Collections.emptySet();
     }
 
@@ -168,9 +162,9 @@ public class CsvMappingStrategy implements MappingStrategy {
     boolean success = true;
 
     if (mappings.isEmpty()) {
-      LOGGER.error("Configuration [{}] must have at least 1 mapping.", filePath);
+      LOGGER.error("Configuration [{}] must have at least 1 mapping.", fileName);
       throw new IllegalStateException(
-          String.format("Configuration [%s] must have at least 1 mapping.", filePath.toString()));
+          String.format("Configuration [%s] must have at least 1 mapping.", fileName));
     }
 
     for (String mapping : mappings) {
@@ -318,22 +312,22 @@ public class CsvMappingStrategy implements MappingStrategy {
   }
 
   private List<String> getFileLines() {
-    List<String> fileLines;
+    List<String> fileLines = new ArrayList<>();
 
-    try {
-      try (Stream<String> stream = Files.lines(filePath)) {
-        fileLines = stream.collect(Collectors.toList());
+    try (BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream))) {
+      String line;
+      while ((line = bufferedReader.readLine()) != null) {
+        fileLines.add(line);
       }
+
     } catch (IOException e) {
-      LOGGER.debug("Error parsing CSV configuration file [{}].", filePath.toString(), e);
-      throw new IllegalStateException(
-          String.format("Error parsing CSV configuration file [%s].", filePath.toString()));
+      LOGGER.debug("Error parsing CSV configuration file [{}].", fileName, e);
+      throw new IllegalStateException(String.format("Error parsing CSV configuration file [%s]", fileName));
     }
 
     if (fileLines.isEmpty()) {
-      LOGGER.error("File contents empty for [{}].", filePath.toString());
-      throw new IllegalStateException(
-          String.format("File contents empty for [%s].", filePath.toAbsolutePath()));
+      LOGGER.error("File contents empty for [{}]", fileName);
+      throw new IllegalStateException(String.format("File contents empty for [%s].", fileName));
     }
 
     return fileLines;

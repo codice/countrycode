@@ -1,6 +1,7 @@
 # Country Code Library
 
 The Country Code library provides facilities for converting between different country code standards.
+This is software is currently in a Beta form and is subject to change
 
 ## Supported Standards
 Standards are available in various formats. For example, the ISO 3166-1 `alpha2` format for the country
@@ -31,15 +32,16 @@ The converter is used to convert between country code standards. Standards can b
   Converter converter = new CountryCodeConvter();
   
   StandardRegistry registry = StandardRegistryImpl.getInstance();
-  Standard fipsStandard = registry.lookup("FIPS", "10-4");
-  Standard isoStandard = registry.lookup("ISO3166", "1");
+  StandardProvider fipsStandard = registry.lookup("FIPS", "10-4");
+  StandardProvider isoStandard = registry.lookup("ISO3166", "1");
   
   // converting from FIPS 10-4 to ISO 3166-1 with alpha2
-  Set<CountryCode> convertedCountryCodes = converter.fromAlpha2("AF", fipsStandard, isoStandard); 
+  Set<CountryCode> convertedCountryCodes = converter.fromAlpha2("AF", fipsStandard.getStandard(), isoStandard.getStandard());
   
   // converting from FIPS 10-4 to ISO 3166-1 with alpha3
-  Set<CountryCode> convertedCountryCodes = converter.fromAlpha3("AFG", fipsStandard, isoStandard); 
+  Set<CountryCode> convertedCountryCodes = converter.fromAlpha3("AFG", fipsStandard.getStandard(), isoStandard.getStandard());
   
   // converting from FIPS 10-4 to ISO 3166-1 with numeric
-  Set<CountryCode> convertedCountryCodes = converter.fromNumeric("004", fipsStandard, isoStandard); 
+  Set<CountryCode> convertedCountryCodes = converter.fromNumeric("004", fipsStandard.getStandard(), isoStandard.getStandard());
+
 ```
