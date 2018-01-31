@@ -372,6 +372,13 @@
         <tag>HEAD</tag>
     </scm>
 
+    <distributionManagement>
+        <repository>
+            <id>releases</id>
+            <url>${releases.repository.url}</url>
+        </repository>
+    </distributionManagement>
+
     <modules>
         <module>api</module>
         <module>converter</module>
