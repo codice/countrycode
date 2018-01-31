@@ -22,6 +22,8 @@
         <version>0.1.0-SNAPSHOT</version>
     </parent>
 
+    <packaging>bundle</packaging>
+
     <artifactId>converter</artifactId>
     <name>Country Code :: Converter :: Impl</name>
 
@@ -41,12 +43,42 @@
             <artifactId>standard-registry</artifactId>
             <version>${project.version}</version>
         </dependency>
+        <dependency>
+            <groupId>org.codice.countrycode</groupId>
+            <artifactId>common</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.codice.countrycode</groupId>
+            <artifactId>genc</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.codice.countrycode</groupId>
+            <artifactId>fips</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.codice.countrycode</groupId>
+            <artifactId>iso</artifactId>
+            <version>${project.version}</version>
+        </dependency>
 
         <!-- Third Party -->
         <dependency>
             <groupId>com.google.guava</groupId>
             <artifactId>guava</artifactId>
             <version>${guava.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>${apache.commons.lang3.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.fastjson</groupId>
+            <artifactId>boon</artifactId>
+            <version>${boon.version}</version>
         </dependency>
 
         <!-- Logging Dependencies -->
@@ -69,6 +101,62 @@
 
     <build>
         <plugins>
+            <plugin>
+                <artifactId>maven-resources-plugin</artifactId>
+                <version>3.0.2</version>
+                <executions>
+                    <execution>
+                        <id>copy-resources</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>copy-resources</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>${basedir}/target/resources</outputDirectory>
+                            <resources>
+                                <resource>
+                                    <directory>src/main/resources</directory>
+                                    <filtering>true</filtering>
+                                </resource>
+                            </resources>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.felix</groupId>
+                <artifactId>maven-bundle-plugin</artifactId>
+                <configuration>
+                    <instructions>
+                        <Bundle-SymbolicName>${project.artifactId}</Bundle-SymbolicName>
+                        <Embed-Dependency>
+                            api,
+                            boon,
+                            guava,
+                            converter-api,
+                            commons-lang3,
+                            common,
+                            genc,
+                            fips,
+                            iso
+                        </Embed-Dependency>
+                        <Import-Package>
+                            !com.google.errorprone.annotations,
+                            !com.google.errorprone.annotations.concurrent,
+                            !com.sun.management,
+                            *
+                        </Import-Package>
+                        <Export-Package>
+                            com.google.common.base,
+                            com.google.common.collect,
+                            com.google.common.io,
+                            org.apache.commons.lang3.*,
+                            org.codice.countrycode.standard,
+                            org.codice.countrycode
+                        </Export-Package>
+                    </instructions>
+                </configuration>
+            </plugin>
             <plugin>
                 <groupId>org.jacoco</groupId>
                 <artifactId>jacoco-maven-plugin</artifactId>
