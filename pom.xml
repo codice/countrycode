@@ -365,6 +365,13 @@
         </pluginRepository>
     </pluginRepositories>
 
+    <scm>
+        <url>https://github.com/codice/countrycode.git</url>
+        <connection>scm:git:git://github.com/codice/countrycode.git</connection>
+        <developerConnection>scm:git:git://github.com/codice/countrycode.git</developerConnection>
+        <tag>HEAD</tag>
+    </scm>
+
     <modules>
         <module>api</module>
         <module>converter</module>
