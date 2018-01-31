@@ -1,7 +1,7 @@
 # Country Code Library
 
 The Country Code library provides facilities for converting between different country code standards.
-This is software is currently in a Beta form and is subject to change
+This software is currently in a Beta form and is subject to change
 
 ## Supported Standards
 Standards are available in various formats. For example, the ISO 3166-1 `alpha2` format for the country
