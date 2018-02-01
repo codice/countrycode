@@ -152,6 +152,7 @@
                             com.google.common.io,
                             org.apache.commons.lang3.*,
                             org.codice.countrycode.standard,
+                            org.codice.countrycode.converter,
                             org.codice.countrycode
                         </Export-Package>
                     </instructions>
