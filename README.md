@@ -29,7 +29,7 @@ A country code can be retrieved for a given format with the following:
 The converter is used to convert between country code standards. Standards can be retrieved via the `StandardRegistry`.
     
 ```    
-  Converter converter = new CountryCodeConvter();
+  Converter converter = new CountryCodeConverter();
   
   StandardRegistry registry = StandardRegistryImpl.getInstance();
   StandardProvider fipsStandard = registry.lookup("FIPS", "10-4");
@@ -43,5 +43,24 @@ The converter is used to convert between country code standards. Standards can b
   
   // converting from FIPS 10-4 to ISO 3166-1 with numeric
   Set<CountryCode> convertedCountryCodes = converter.fromNumeric("004", fipsStandard.getStandard(), isoStandard.getStandard());
+
+```
+
+## Retrieve an alpha3 code from an alpha2 code
+
+```
+  StandardRegistry registry = StandardRegistryImpl.getInstance();
+  StandardProvider isoStandard = registry.lookup("ISO3166", "1");
+
+  // converting from ISO 3166-1 alpha2 to ISO 3166-1 alpha3
+  Optional<CountryCode> optionalCountryCode =
+          isoStandard
+              .getStandardEntries()
+              .stream()
+              .filter(c -> c.getAsFormat("alpha2").equals("AT"))
+              .findFirst();
+
+  if (optionalCountryCode.isPresent())
+    System.out.println(optionalCountryCode.get().getAsFormat("alpha3"));
 
 ```
