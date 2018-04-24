@@ -1,0 +1,44 @@
+[
+  {
+    "name": "Netherlands Antilles",
+    "alpha2": "AN",
+    "alpha3": "ANT",
+    "numeric": "530"
+  },
+  {
+    "name": "Burma",
+    "alpha2": "BU",
+    "alpha3": "BUR",
+    "numeric": "104"
+  },
+  {
+    "name": "Serbia and Montenegro",
+    "alpha2": "CS",
+    "alpha3": "SCG",
+    "numeric": "891"
+  },
+  {
+    "name": "Neutral Zone",
+    "alpha2": "NT",
+    "alpha3": "NTZ",
+    "numeric": "536"
+  },
+  {
+    "name": "East Timor",
+    "alpha2": "TP",
+    "alpha3": "TMP",
+    "numeric": "626"
+  },
+  {
+    "name": "Yugoslavia",
+    "alpha2": "YU",
+    "alpha3": "YUG",
+    "numeric": "891"
+  },
+  {
+    "name": "Zaire",
+    "alpha2": "ZR",
+    "alpha3": "ZAR",
+    "numeric": "180"
+  }
+]

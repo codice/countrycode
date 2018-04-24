@@ -36,7 +36,7 @@
         <org.slf4j.version>1.7.25</org.slf4j.version>
         <ddf.version>2.11.3</ddf.version>
         <ddf.support.version>2.3.9</ddf.support.version>
-        <guava.version>22.0</guava.version>
+        <guava.version>18.0</guava.version>
         <apache.commons.io.version>2.5</apache.commons.io.version>
         <apache.commons.collections.version>4.1</apache.commons.collections.version>
         <apache.commons.lang3.version>3.7</apache.commons.lang3.version>
