@@ -35,11 +35,11 @@
         <!-- Dependency Properties -->
         <org.slf4j.version>1.7.25</org.slf4j.version>
         <ddf.version>2.11.3</ddf.version>
-        <ddf.support.version>2.3.9</ddf.support.version>
+        <ddf.support.version>2.3.12</ddf.support.version>
         <guava.version>18.0</guava.version>
         <apache.commons.io.version>2.5</apache.commons.io.version>
         <apache.commons.collections.version>4.1</apache.commons.collections.version>
-        <apache.commons.lang3.version>3.7</apache.commons.lang3.version>
+        <apache.commons.lang3.version>3.4</apache.commons.lang3.version>
         <boon.version>0.34</boon.version>
         <junit.version>4.12</junit.version>
     </properties>
@@ -54,13 +54,9 @@
             </dependency>
             <dependency>
                 <groupId>org.slf4j</groupId>
-                <artifactId>slf4j-ext</artifactId>
-                <version>${org.slf4j.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.slf4j</groupId>
                 <artifactId>slf4j-simple</artifactId>
                 <version>${org.slf4j.version}</version>
+                <scope>test</scope>
             </dependency>
         </dependencies>
     </dependencyManagement>
@@ -110,8 +106,6 @@
                                 <includes>src/**/*.java</includes>
                                 <consoleOutput>true</consoleOutput>
                                 <failsOnError>true</failsOnError>
-                                <linkXRef>false</linkXRef>
-                                <aggregate>true</aggregate>
                             </configuration>
                         </execution>
                         <execution>
@@ -128,8 +122,6 @@
                                 <includes>src/**/*.xml, pom.xml</includes>
                                 <consoleOutput>true</consoleOutput>
                                 <failsOnError>true</failsOnError>
-                                <linkXRef>false</linkXRef>
-                                <aggregate>true</aggregate>
                             </configuration>
                         </execution>
                     </executions>
@@ -142,7 +134,6 @@
                         <consoleOutput>true</consoleOutput>
                         <failsOnError>true</failsOnError>
                         <linkXRef>false</linkXRef>
-                        <aggregate>true</aggregate>
                     </configuration>
                 </plugin>
                 <plugin>

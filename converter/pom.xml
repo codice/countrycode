@@ -83,17 +83,10 @@
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
-            <version>${org.slf4j.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-ext</artifactId>
-            <version>${org.slf4j.version}</version>
         </dependency>
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-simple</artifactId>
-            <version>${org.slf4j.version}</version>
         </dependency>
     </dependencies>
 
@@ -127,28 +120,18 @@
                 <configuration>
                     <instructions>
                         <Bundle-SymbolicName>${project.artifactId}</Bundle-SymbolicName>
+                        <Embed-Transitive>true</Embed-Transitive>
                         <Embed-Dependency>
-                            api,
-                            boon,
-                            guava,
-                            converter-api,
-                            commons-lang3,
-                            common,
-                            genc,
-                            fips,
-                            iso
+                            *;scope=compile|runtime
                         </Embed-Dependency>
                         <Import-Package>
                             !com.google.errorprone.annotations,
                             !com.google.errorprone.annotations.concurrent,
                             !com.sun.management,
+                            !org.slf4j.impl,
                             *
                         </Import-Package>
                         <Export-Package>
-                            com.google.common.base,
-                            com.google.common.collect,
-                            com.google.common.io,
-                            org.apache.commons.lang3.*,
                             org.codice.countrycode.standard,
                             org.codice.countrycode.converter,
                             org.codice.countrycode
