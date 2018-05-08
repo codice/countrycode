@@ -17,7 +17,7 @@
 
     <groupId>org.codice.countrycode</groupId>
     <artifactId>country-code</artifactId>
-    <version>0.1.2-SNAPSHOT</version>
+    <version>0.1.2</version>
 
     <name>Country Code</name>
     <packaging>pom</packaging>
@@ -369,7 +369,7 @@
         <url>https://github.com/codice/countrycode.git</url>
         <connection>scm:git:git@github.com:codice/countrycode.git</connection>
         <developerConnection>scm:git:git@github.com:codice/countrycode.git</developerConnection>
-        <tag>HEAD</tag>
+        <tag>country-code-0.1.2</tag>
     </scm>
 
     <distributionManagement>
