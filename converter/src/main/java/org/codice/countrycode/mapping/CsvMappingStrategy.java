@@ -114,7 +114,7 @@ public class CsvMappingStrategy implements MappingStrategy {
     Optional<StandardPropertyPair> pairOptional =
         configStandardPropertyPairs
             .stream()
-            .filter(def -> StandardUtils.equalStandards(def.getStandard(), standard))
+            .filter(def -> def.getStandard().equals(standard))
             .findFirst();
 
     if (!pairOptional.isPresent()) {
@@ -137,7 +137,7 @@ public class CsvMappingStrategy implements MappingStrategy {
               .filter(
                   cc ->
                       cc.getStandard().getFormatNames().contains(configFormat)
-                          && StandardUtils.equalStandards(cc.getStandard(), configStandard)
+                          && cc.getStandard().equals(configStandard)
                           && StandardUtils.containsFormatValue(cc, value))
               .findFirst();
 
@@ -187,7 +187,7 @@ public class CsvMappingStrategy implements MappingStrategy {
         Optional<StandardPropertyPair> definitionOptional =
             configStandardPropertyPairs
                 .stream()
-                .filter(def -> StandardUtils.equalStandards(def.getStandard(), propertyStandard))
+                .filter(def -> def.getStandard().equals(propertyStandard))
                 .findFirst();
 
         String propertyValue = propertyValues[i].trim();

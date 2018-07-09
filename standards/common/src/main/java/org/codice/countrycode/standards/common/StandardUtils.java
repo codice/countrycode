@@ -26,11 +26,6 @@ public class StandardUtils {
         && countryCodeStandard.getVersion().equals(standard.getVersion());
   }
 
-  public static boolean equalStandards(Standard first, Standard second) {
-    return first.getName().equalsIgnoreCase(second.getName())
-        && first.getVersion().equalsIgnoreCase(second.getVersion());
-  }
-
   public static boolean containsFormatValue(CountryCode countryCode, String value) {
     return countryCode
         .getStandard()

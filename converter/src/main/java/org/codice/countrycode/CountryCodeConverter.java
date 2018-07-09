@@ -52,7 +52,7 @@ public class CountryCodeConverter implements Converter {
 
   private boolean mappingStrategyMapsStandard(Standard defaultStandard) {
     for (Standard standard : mappingStrategy.getMappedStandards()) {
-      if (StandardUtils.equalStandards(standard, defaultStandard)) {
+      if (standard.equals(defaultStandard)) {
         return true;
       }
     }
@@ -85,7 +85,7 @@ public class CountryCodeConverter implements Converter {
   }
 
   private Set<CountryCode> fromProperty(String propertyValue, Standard from, Standard to) {
-    if (StandardUtils.equalStandards(from, to)) {
+    if (from.equals(to)) {
       Set<CountryCode> fromCountryCodes =
           mappingStrategy
               .getMappings()
