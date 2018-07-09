@@ -86,14 +86,12 @@ public class CsvMappingStrategy implements MappingStrategy {
     if (!parseConfigStandardsAndMappingProperties(
         lines.subList(CSV_STANDARD_LINE_START, CSV_STANDARD_LINE_END))) {
       LOGGER.debug("Failed to parse standards from [{}].", file);
-      throw new IllegalStateException(
-          String.format("Failed to parse standards from [%s].", file));
+      throw new IllegalStateException(String.format("Failed to parse standards from [%s].", file));
     }
 
     if (!parseMappings(lines.subList(CSV_MAPPINGS_LINE_START, lines.size()))) {
       LOGGER.debug("Failed to parse mappings from [{}].", file);
-      throw new IllegalStateException(
-          String.format("Failed to parse mappings from [%s].", file));
+      throw new IllegalStateException(String.format("Failed to parse mappings from [%s].", file));
     }
   }
 
@@ -139,7 +137,7 @@ public class CsvMappingStrategy implements MappingStrategy {
               .filter(
                   cc ->
                       cc.getStandard().getFormatNames().contains(configFormat)
-                          && StandardUtils.equalStandards(standard, configStandard)
+                          && StandardUtils.equalStandards(cc.getStandard(), configStandard)
                           && StandardUtils.containsFormatValue(cc, value))
               .findFirst();
 
@@ -322,7 +320,8 @@ public class CsvMappingStrategy implements MappingStrategy {
 
     } catch (IOException e) {
       LOGGER.debug("Error parsing CSV configuration file [{}].", fileName, e);
-      throw new IllegalStateException(String.format("Error parsing CSV configuration file [%s]", fileName));
+      throw new IllegalStateException(
+          String.format("Error parsing CSV configuration file [%s]", fileName));
     }
 
     if (fileLines.isEmpty()) {
