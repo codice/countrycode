@@ -144,7 +144,7 @@ public class CsvMappingStrategy implements MappingStrategy {
       if (countryCode.isPresent()) {
         Set<CountryCode> mappingSet = new HashSet<>();
         for (CountryCode code : mapping) {
-          if (!StandardUtils.hasStandard(code, standard)) {
+          if (!code.getStandard().equals(standard)) {
             mappingSet.add(code);
           }
         }

@@ -93,7 +93,7 @@ public class CountryCodeConverter implements Converter {
               .flatMap(Set::stream)
               .filter(
                   cc ->
-                      StandardUtils.hasStandard(cc, from)
+                      cc.getStandard().equals(from)
                           && StandardUtils.containsFormatValue(cc, propertyValue))
               .collect(Collectors.toSet());
 
@@ -104,7 +104,7 @@ public class CountryCodeConverter implements Converter {
     return ImmutableSet.copyOf(
         mappings
             .stream()
-            .filter(cc -> StandardUtils.hasStandard(cc, to))
+            .filter(cc -> cc.getStandard().equals(to))
             .collect(Collectors.toSet()));
   }
 }
