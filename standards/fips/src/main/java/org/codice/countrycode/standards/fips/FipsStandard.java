@@ -17,7 +17,7 @@ import com.google.common.collect.ImmutableSet;
 import java.util.Set;
 import org.codice.countrycode.standard.Standard;
 
-public class FipsStandard implements Standard {
+public class FipsStandard extends Standard {
 
   public static final String ALPHA_2 = "alpha2";
 

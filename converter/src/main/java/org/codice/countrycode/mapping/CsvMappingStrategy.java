@@ -86,14 +86,12 @@ public class CsvMappingStrategy implements MappingStrategy {
     if (!parseConfigStandardsAndMappingProperties(
         lines.subList(CSV_STANDARD_LINE_START, CSV_STANDARD_LINE_END))) {
       LOGGER.debug("Failed to parse standards from [{}].", file);
-      throw new IllegalStateException(
-          String.format("Failed to parse standards from [%s].", file));
+      throw new IllegalStateException(String.format("Failed to parse standards from [%s].", file));
     }
 
     if (!parseMappings(lines.subList(CSV_MAPPINGS_LINE_START, lines.size()))) {
       LOGGER.debug("Failed to parse mappings from [{}].", file);
-      throw new IllegalStateException(
-          String.format("Failed to parse mappings from [%s].", file));
+      throw new IllegalStateException(String.format("Failed to parse mappings from [%s].", file));
     }
   }
 
@@ -116,7 +114,7 @@ public class CsvMappingStrategy implements MappingStrategy {
     Optional<StandardPropertyPair> pairOptional =
         configStandardPropertyPairs
             .stream()
-            .filter(def -> StandardUtils.equalStandards(def.getStandard(), standard))
+            .filter(def -> def.getStandard().equals(standard))
             .findFirst();
 
     if (!pairOptional.isPresent()) {
@@ -139,14 +137,14 @@ public class CsvMappingStrategy implements MappingStrategy {
               .filter(
                   cc ->
                       cc.getStandard().getFormatNames().contains(configFormat)
-                          && StandardUtils.equalStandards(standard, configStandard)
+                          && cc.getStandard().equals(configStandard)
                           && StandardUtils.containsFormatValue(cc, value))
               .findFirst();
 
       if (countryCode.isPresent()) {
         Set<CountryCode> mappingSet = new HashSet<>();
         for (CountryCode code : mapping) {
-          if (!StandardUtils.hasStandard(code, standard)) {
+          if (!code.getStandard().equals(standard)) {
             mappingSet.add(code);
           }
         }
@@ -189,7 +187,7 @@ public class CsvMappingStrategy implements MappingStrategy {
         Optional<StandardPropertyPair> definitionOptional =
             configStandardPropertyPairs
                 .stream()
-                .filter(def -> StandardUtils.equalStandards(def.getStandard(), propertyStandard))
+                .filter(def -> def.getStandard().equals(propertyStandard))
                 .findFirst();
 
         String propertyValue = propertyValues[i].trim();
@@ -322,7 +320,8 @@ public class CsvMappingStrategy implements MappingStrategy {
 
     } catch (IOException e) {
       LOGGER.debug("Error parsing CSV configuration file [{}].", fileName, e);
-      throw new IllegalStateException(String.format("Error parsing CSV configuration file [%s]", fileName));
+      throw new IllegalStateException(
+          String.format("Error parsing CSV configuration file [%s]", fileName));
     }
 
     if (fileLines.isEmpty()) {

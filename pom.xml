@@ -235,6 +235,9 @@
                     <argLine>${argLine} -Djava.awt.headless=true -noverify</argLine>
                     <includes>
                         <include>**/*Spec.class</include>
+                        <include>**/*Test.class</include>
+                        <include>**/Test*.class</include>
+                        <include>**/*TestCase.class</include>
                     </includes>
                 </configuration>
             </plugin>
