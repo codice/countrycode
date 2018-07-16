@@ -29,8 +29,15 @@ import org.codice.countrycode.standard.StandardProvider;
 import org.codice.countrycode.standard.StandardRegistry;
 import org.codice.countrycode.standard.StandardRegistryImpl;
 
-/** simple interface for the typical use case */
-// we may want to move this to a different package/module/project
+/**
+ * Simple interface for the typical use case of converting between the following standards: ISO
+ * 3166-1, GENC 3.0.0, and FIPS 10-4.
+ *
+ * <pre>
+ *   String countryCode = CountryCodeSimple.convert(&quot;CH&quot;, FIPS_10_4_ALPHA2, ISO_3166_1_ALPHA3)
+ *   assert countryCode.equals(&quot;CHN&quot;);
+ * </pre>
+ */
 public class CountryCodeSimple {
 
   private static final String FIPS = "FIPS";

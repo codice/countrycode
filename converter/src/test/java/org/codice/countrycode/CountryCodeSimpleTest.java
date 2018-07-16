@@ -20,7 +20,8 @@ import static org.codice.countrycode.CountryCodeSimple.StandardFormat.GENC_3_0_0
 import static org.codice.countrycode.CountryCodeSimple.StandardFormat.ISO_3166_1_ALPHA2;
 import static org.codice.countrycode.CountryCodeSimple.StandardFormat.ISO_3166_1_ALPHA3;
 import static org.codice.countrycode.CountryCodeSimple.StandardFormat.ISO_3166_1_NUMERIC;
-import static org.junit.Assert.assertEquals;
+import static org.hamcrest.core.IsEqual.equalTo;
+import static org.junit.Assert.assertThat;
 
 import java.util.Set;
 import org.junit.Ignore;
@@ -31,42 +32,51 @@ public class CountryCodeSimpleTest {
 
   @Test
   public void testConversion() {
-    assertEquals(
+    assertThat(
         "CHN",
-        CountryCodeSimple.convert("CH", FIPS_10_4_ALPHA2, ISO_3166_1_ALPHA3).iterator().next());
-    assertEquals(
+        equalTo(
+            CountryCodeSimple.convert("CH", FIPS_10_4_ALPHA2, ISO_3166_1_ALPHA3)
+                .iterator()
+                .next()));
+    assertThat(
         "AQ",
-        CountryCodeSimple.convert("ATA", ISO_3166_1_ALPHA3, ISO_3166_1_ALPHA2).iterator().next());
-    assertEquals(
+        equalTo(
+            CountryCodeSimple.convert("ATA", ISO_3166_1_ALPHA3, ISO_3166_1_ALPHA2)
+                .iterator()
+                .next()));
+    assertThat(
         "BS",
-        CountryCodeSimple.convert("BHS", ISO_3166_1_ALPHA3, ISO_3166_1_ALPHA2).iterator().next());
+        equalTo(
+            CountryCodeSimple.convert("BHS", ISO_3166_1_ALPHA3, ISO_3166_1_ALPHA2)
+                .iterator()
+                .next()));
   }
 
   @Test
   public void testConversion2() {
     Set<String> result = CountryCodeSimple.convert("CH", FIPS_10_4_ALPHA2, ISO_3166_1_ALPHA2);
-    assertEquals(1, result.size());
-    assertEquals("CN", result.iterator().next());
+    assertThat(1, equalTo(result.size()));
+    assertThat("CN", equalTo(result.iterator().next()));
   }
 
   @Test
   public void testSameStandardWithMentionInMappingsCSV() {
     Set<String> result = CountryCodeSimple.convert("CN", GENC_3_0_0_ALPHA2, GENC_3_0_0_ALPHA3);
-    assertEquals(1, result.size());
-    assertEquals("CHN", result.iterator().next());
+    assertThat(1, equalTo(result.size()));
+    assertThat("CHN", equalTo(result.iterator().next()));
   }
 
   @Test
   public void testSameStandardWithNoMentionInMappingsCSV() {
     Set<String> result = CountryCodeSimple.convert("BES", ISO_3166_1_ALPHA3, ISO_3166_1_ALPHA2);
-    assertEquals(1, result.size());
-    assertEquals("BQ", result.iterator().next());
+    assertThat(1, equalTo(result.size()));
+    assertThat("BQ", equalTo(result.iterator().next()));
   }
 
   @Test
   public void testInvalidConversionAlpha2ButUsingAlpha3Code() {
     Set<String> result = CountryCodeSimple.convert("CHE", GENC_3_0_0_ALPHA2, GENC_3_0_0_ALPHA3);
-    assertEquals(0, result.size());
+    assertThat(0, equalTo(result.size()));
   }
 
   // todo this demonstrates a bug where the input format is ignored by the converter impl
@@ -75,6 +85,6 @@ public class CountryCodeSimpleTest {
   @Ignore
   public void testInvalidConversionFromNumeric() {
     Set<String> result = CountryCodeSimple.convert("CH", GENC_3_0_0_NUMERIC, ISO_3166_1_NUMERIC);
-    assertEquals(0, result.size());
+    assertThat(0, equalTo(result.size()));
   }
 }
