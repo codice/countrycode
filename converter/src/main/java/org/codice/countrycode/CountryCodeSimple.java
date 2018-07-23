@@ -40,15 +40,6 @@ import org.codice.countrycode.standard.StandardRegistryImpl;
  */
 public class CountryCodeSimple {
 
-  private static final String FIPS = "FIPS";
-  private static final String FIPS_VERSION = "10-4";
-
-  private static final String ISO = "ISO3166";
-  private static final String ISO_VERSION = "1";
-
-  private static final String GENC = "GENC";
-  private static final String GENC_VERSION = "3.0.0";
-
   private static final StandardProvider FIPS_STANDARD;
   private static final StandardProvider ISO_STANDARD;
   private static final StandardProvider GENC_STANDARD;
@@ -57,9 +48,9 @@ public class CountryCodeSimple {
 
   static {
     StandardRegistry registry = StandardRegistryImpl.getInstance();
-    FIPS_STANDARD = registry.lookup(FIPS, FIPS_VERSION);
-    ISO_STANDARD = registry.lookup(ISO, ISO_VERSION);
-    GENC_STANDARD = registry.lookup(GENC, GENC_VERSION);
+    FIPS_STANDARD = registry.lookup("FIPS", "10-4");
+    ISO_STANDARD = registry.lookup("ISO3166", "1");
+    GENC_STANDARD = registry.lookup("GENC", "3.0.0");
   }
 
   public enum StandardFormat {
@@ -86,33 +77,25 @@ public class CountryCodeSimple {
     public Format getFormat() {
       return format;
     }
+
+    public Set<String> allCodes() {
+      return getAsFormat(standard.standardProvider.getStandardEntries(), format);
+    }
   }
 
   public enum Standard {
-    FIPS_10_4(FIPS, FIPS_VERSION, FIPS_STANDARD),
-    ISO_3166_1(ISO, ISO_VERSION, ISO_STANDARD),
-    GENC_3_0_0(GENC, GENC_VERSION, GENC_STANDARD);
+    FIPS_10_4(FIPS_STANDARD),
+    ISO_3166_1(ISO_STANDARD),
+    GENC_3_0_0(GENC_STANDARD);
 
-    private final String name;
-    private final String version;
     private final StandardProvider standardProvider;
 
-    Standard(String name, String version, StandardProvider standardProvider) {
-      this.name = name;
-      this.version = version;
+    Standard(StandardProvider standardProvider) {
       this.standardProvider = standardProvider;
     }
 
     private org.codice.countrycode.standard.Standard getStandard() {
       return standardProvider.getStandard();
-    }
-
-    public String getName() {
-      return name;
-    }
-
-    public String getVersion() {
-      return version;
     }
   }
 
@@ -134,6 +117,15 @@ public class CountryCodeSimple {
   private CountryCodeSimple() {
   }
 
+  /**
+   * Convert a countryCode to the specified standard and format.
+   *
+   * @param countryCode code to convert
+   * @param from incoming standard and format
+   * @param to outgoing standard and format
+   * @return the converted country codes or an empty set if no conversions were found. This method
+   *     will never return null.
+   */
   public static Set<String> convert(String countryCode, StandardFormat from, StandardFormat to) {
 
     if (countryCode == null || countryCode.isEmpty()) {
@@ -142,7 +134,7 @@ public class CountryCodeSimple {
 
     Set<CountryCode> countryCodes;
 
-    if (from.getStandard().equals(to.getStandard())) {
+    if (from.standard.equals(to.standard)) {
       countryCodes = useProvider(countryCode, from);
     } else {
       countryCodes = useConverter(countryCode, from, to);
