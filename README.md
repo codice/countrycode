@@ -9,8 +9,7 @@ Simple interface for the typical use case of converting between the following st
 GENC 3.0.0, and FIPS 10-4. 
  
 ```   
-String countryCode = CountryCodeSimple.convert("CH", FIPS_10_4_ALPHA2, ISO_3166_1_ALPHA3)
-assert countryCode.equals("CHN");
+Set<String> countryCodes = CountryCodeSimple.convert("CH", FIPS_10_4_ALPHA2, ISO_3166_1_ALPHA3)
 ```   
 
 ## Supported Standards
