@@ -25,8 +25,7 @@ public class GencStandard extends Standard {
 
   public static final String NUMERIC = "numeric";
 
-  private static final Set<String> SUPPORTED_FORMATS =
-      ImmutableSet.of(ALPHA_2, ALPHA_3, NUMERIC);
+  private static final Set<String> SUPPORTED_FORMATS = ImmutableSet.of(ALPHA_2, ALPHA_3, NUMERIC);
 
   @Override
   public String getName() {

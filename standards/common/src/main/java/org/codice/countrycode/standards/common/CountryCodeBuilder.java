@@ -42,7 +42,7 @@ public class CountryCodeBuilder {
   }
 
   public CountryCodeBuilder formatValue(String key, String value) {
-    if(standard.getFormatNames().contains(key)) {
+    if (standard.getFormatNames().contains(key)) {
       formatValues.put(key, value);
     }
     return this;

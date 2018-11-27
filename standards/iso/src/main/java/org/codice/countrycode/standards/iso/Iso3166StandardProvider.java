@@ -37,7 +37,9 @@ public class Iso3166StandardProvider implements StandardProvider {
 
   private static final Logger LOGGER = LoggerFactory.getLogger(Iso3166StandardProvider.class);
 
-  private static final String[] ISO3166_1_JSON = {"iso3166-1.json", "iso3166-1-transitional.json", "iso3166-1-user-assigned.json"};
+  private static final String[] ISO3166_1_JSON = {
+    "iso3166-1.json", "iso3166-1-transitional.json", "iso3166-1-user-assigned.json"
+  };
 
   private final Standard standard;
 
@@ -63,14 +65,16 @@ public class Iso3166StandardProvider implements StandardProvider {
     List<Iso3166Code> isoCodes = new ArrayList<>();
 
     for (String filename : ISO3166_1_JSON) {
-      isoCodes.addAll(Boon.fromJsonArray(
-          IO.read(this.getClass().getClassLoader().getResourceAsStream(filename), "UTF-8"),
-          Iso3166Code.class));
+      isoCodes.addAll(
+          Boon.fromJsonArray(
+              IO.read(this.getClass().getClassLoader().getResourceAsStream(filename), "UTF-8"),
+              Iso3166Code.class));
     }
 
     if (CollectionUtils.isEmpty(isoCodes)) {
       LOGGER.debug(
-          "ISO 3166-1 files {} contained no codes. Provider will be empty.", Arrays.toString(ISO3166_1_JSON));
+          "ISO 3166-1 files {} contained no codes. Provider will be empty.",
+          Arrays.toString(ISO3166_1_JSON));
       return;
     }
 

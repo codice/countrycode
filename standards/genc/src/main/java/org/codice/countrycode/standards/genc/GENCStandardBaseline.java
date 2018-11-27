@@ -41,8 +41,7 @@ public class GENCStandardBaseline {
   @XmlElement(name = "GeopoliticalEntityEntry")
   private List<GeopoliticalEntityEntry> geopoliticalEntityEntries;
 
-  @XmlElement
-  private String schemaLocation;
+  @XmlElement private String schemaLocation;
 
   public void setAuthority(String authority) {
     this.authority = authority;
