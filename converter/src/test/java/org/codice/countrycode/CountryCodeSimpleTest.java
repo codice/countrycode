@@ -21,6 +21,7 @@ import static org.codice.countrycode.CountryCodeSimple.StandardFormat.ISO_3166_1
 import static org.codice.countrycode.CountryCodeSimple.StandardFormat.ISO_3166_1_ALPHA3;
 import static org.codice.countrycode.CountryCodeSimple.StandardFormat.ISO_3166_1_NUMERIC;
 import static org.hamcrest.core.IsEqual.equalTo;
+import static org.hamcrest.core.IsCollectionContaining.hasItems;
 import static org.junit.Assert.assertThat;
 
 import java.util.Set;
@@ -78,6 +79,7 @@ public class CountryCodeSimpleTest {
     Set<String> result = CountryCodeSimple.convert("CHE", GENC_3_0_0_ALPHA2, GENC_3_0_0_ALPHA3);
     assertThat(0, equalTo(result.size()));
   }
+
 
   // todo this demonstrates a bug where the input format is ignored by the converter impl
   // we should fix this bug
