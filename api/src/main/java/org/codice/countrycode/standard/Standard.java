@@ -54,7 +54,8 @@ public abstract class Standard {
       return false;
     }
     Standard standard = (Standard) o;
-    return getName().equalsIgnoreCase(standard.getName()) && getVersion().equalsIgnoreCase(standard.getVersion());
+    return getName().equalsIgnoreCase(standard.getName())
+        && getVersion().equalsIgnoreCase(standard.getVersion());
   }
 
   @Override

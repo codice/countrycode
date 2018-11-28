@@ -53,7 +53,6 @@ public interface Converter {
    * @param to the standard to map to
    * @return a set of country code conversions
    */
-
   Set<CountryCode> fromNumeric(String numeric, Standard from, Standard to);
 
   Set<Standard> getSupportedStandards();

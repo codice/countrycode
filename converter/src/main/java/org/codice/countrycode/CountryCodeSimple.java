@@ -128,11 +128,8 @@ public class CountryCodeSimple {
     }
   }
 
-  /**
-   * Don't let anyone instantiate this class
-   */
-  private CountryCodeSimple() {
-  }
+  /** Don't let anyone instantiate this class */
+  private CountryCodeSimple() {}
 
   public static Set<String> convert(String countryCode, StandardFormat from, StandardFormat to) {
 

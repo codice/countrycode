@@ -102,9 +102,6 @@ public class CountryCodeConverter implements Converter {
 
     Set<CountryCode> mappings = mappingStrategy.getMappingFor(from, propertyValue);
     return ImmutableSet.copyOf(
-        mappings
-            .stream()
-            .filter(cc -> cc.getStandard().equals(to))
-            .collect(Collectors.toSet()));
+        mappings.stream().filter(cc -> cc.getStandard().equals(to)).collect(Collectors.toSet()));
   }
 }

@@ -14,7 +14,6 @@
 package org.codice.countrycode.mapping;
 
 import com.google.common.collect.ImmutableSet;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
