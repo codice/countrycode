@@ -18,14 +18,14 @@ import static org.codice.countrycode.standards.iso.Iso3166Standard.ALPHA_3;
 import static org.codice.countrycode.standards.iso.Iso3166Standard.NUMERIC;
 
 import com.google.common.collect.ImmutableSet;
+import com.google.gson.Gson;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import org.apache.commons.collections4.CollectionUtils;
-import org.boon.Boon;
-import org.boon.IO;
 import org.codice.countrycode.standard.CountryCode;
 import org.codice.countrycode.standard.Standard;
 import org.codice.countrycode.standard.StandardProvider;
@@ -40,6 +40,8 @@ public class Iso3166StandardProvider implements StandardProvider {
   private static final String[] ISO3166_1_JSON = {
     "iso3166-1.json", "iso3166-1-transitional.json", "iso3166-1-user-assigned.json"
   };
+
+  private static final Gson GSON = new Gson();
 
   private final Standard standard;
 
@@ -65,10 +67,13 @@ public class Iso3166StandardProvider implements StandardProvider {
     List<Iso3166Code> isoCodes = new ArrayList<>();
 
     for (String filename : ISO3166_1_JSON) {
-      isoCodes.addAll(
-          Boon.fromJsonArray(
-              IO.read(this.getClass().getClassLoader().getResourceAsStream(filename), "UTF-8"),
-              Iso3166Code.class));
+      Iso3166Code[] iso3166Codes =
+          GSON.fromJson(
+              new InputStreamReader(this.getClass().getClassLoader().getResourceAsStream(filename)),
+              Iso3166Code[].class);
+      for (Iso3166Code iso3166Code : iso3166Codes) {
+        isoCodes.add(iso3166Code);
+      }
     }
 
     if (CollectionUtils.isEmpty(isoCodes)) {
