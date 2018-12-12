@@ -15,12 +15,13 @@ package org.codice.countrycode.standards.fips;
 
 import static org.codice.countrycode.standards.fips.FipsStandard.ALPHA_2;
 
+import com.google.gson.Gson;
+import java.io.InputStreamReader;
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import org.apache.commons.collections4.CollectionUtils;
-import org.boon.Boon;
-import org.boon.IO;
 import org.codice.countrycode.standard.CountryCode;
 import org.codice.countrycode.standard.Standard;
 import org.codice.countrycode.standard.StandardProvider;
@@ -34,6 +35,8 @@ public class FipsJsonStandardProvider implements StandardProvider {
   private static final Logger LOGGER = LoggerFactory.getLogger(FipsJsonStandardProvider.class);
 
   private static final String FIPS_CODES_FILE = "fips_codes.json";
+
+  private static final Gson GSON = new Gson();
 
   private final Standard standard;
 
@@ -56,10 +59,12 @@ public class FipsJsonStandardProvider implements StandardProvider {
   }
 
   private void init() {
-    List<FipsCode> fipsCodes =
-        Boon.fromJsonArray(
-            IO.read(this.getClass().getClassLoader().getResourceAsStream(FIPS_CODES_FILE), "UTF-8"),
-            FipsCode.class);
+    FipsCode[] fipsArray =
+        GSON.fromJson(
+            new InputStreamReader(
+                this.getClass().getClassLoader().getResourceAsStream(FIPS_CODES_FILE)),
+            FipsCode[].class);
+    List<FipsCode> fipsCodes = Arrays.asList(fipsArray);
 
     if (CollectionUtils.isEmpty(fipsCodes)) {
       LOGGER.debug("FIPS file [{}] contained no codes. Provider will be empty.", FIPS_CODES_FILE);
