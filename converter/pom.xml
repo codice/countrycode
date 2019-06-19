@@ -12,7 +12,8 @@
  *
  **/
 -->
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <artifactId>country-code</artifactId>
@@ -50,6 +51,12 @@
             <groupId>org.codice.countrycode</groupId>
             <artifactId>genc</artifactId>
             <version>${project.version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.glassfish.jaxb</groupId>
+                    <artifactId>jaxb-runtime</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
         <dependency>
             <groupId>org.codice.countrycode</groupId>
@@ -121,6 +128,8 @@
                             *;scope=compile|runtime
                         </Embed-Dependency>
                         <Import-Package>
+                            !com.google.appengine.api,
+                            !com.google.apphosting.api,
                             !com.google.errorprone.annotations,
                             !com.google.errorprone.annotations.concurrent,
                             !com.sun.management,

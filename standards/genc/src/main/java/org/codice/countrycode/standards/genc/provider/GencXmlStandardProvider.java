@@ -82,12 +82,10 @@ public class GencXmlStandardProvider implements StandardProvider {
     try {
       Unmarshaller unmarshaller =
           JAXBContext.newInstance(GENCStandardBaseline.class).createUnmarshaller();
-
       GENCStandardBaseline gencStandardBaseline =
           (GENCStandardBaseline) unmarshaller.unmarshal(new StringReader(xml));
       List<GeopoliticalEntityEntry> geopoliticalEntityEntries =
           gencStandardBaseline.getGeopoliticalEntityEntries();
-
       for (GeopoliticalEntityEntry entry : geopoliticalEntityEntries) {
         CountryCode countryCode =
             new CountryCodeBuilder(getStandard(), entry.getName())

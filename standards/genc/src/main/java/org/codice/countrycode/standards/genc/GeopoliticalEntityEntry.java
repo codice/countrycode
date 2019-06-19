@@ -16,18 +16,20 @@ package org.codice.countrycode.standards.genc;
 import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlValue;
 
-@XmlRootElement(name = "GeopoliticalEntityEntry")
+@XmlRootElement(
+  name = "GeopoliticalEntityEntry",
+  namespace = "http://api.nsgreg.nga.mil/schema/genc/3.0"
+)
 @XmlAccessorType(XmlAccessType.FIELD)
 public class GeopoliticalEntityEntry {
 
   @XmlElement private String entryType;
 
-  @XmlElement private Encoding encoding;
+  @XmlElement(name = "encoding")
+  private Encoding encoding;
 
   @XmlElement private String name;
 
@@ -153,165 +155,5 @@ public class GeopoliticalEntityEntry {
 
   public List<LocalShortName> getLocalShortNames() {
     return localShortName;
-  }
-
-  @XmlRootElement
-  @XmlAccessorType(XmlAccessType.FIELD)
-  public static class Encoding {
-
-    @XmlElement private String char2Code;
-
-    @XmlElement private CodeUriSet char2CodeURISet;
-
-    @XmlElement private CodeUriSet char3CodeURISet;
-
-    @XmlElement private CodeUriSet numericCodeURISet;
-
-    @XmlElement private String char3Code;
-
-    public void setChar2Code(String char2Code) {
-      this.char2Code = char2Code;
-    }
-
-    public void setChar2CodeURISet(CodeUriSet char2CodeURISet) {
-      this.char2CodeURISet = char2CodeURISet;
-    }
-
-    public void setChar3CodeURISet(CodeUriSet char3CodeURISet) {
-      this.char3CodeURISet = char3CodeURISet;
-    }
-
-    public void setNumericCodeURISet(CodeUriSet numericCodeURISet) {
-      this.numericCodeURISet = numericCodeURISet;
-    }
-
-    public void setChar3Code(String char3Code) {
-      this.char3Code = char3Code;
-    }
-
-    public void setNumericCode(String numericCode) {
-      this.numericCode = numericCode;
-    }
-
-    private String numericCode;
-
-    public String getChar2Code() {
-      return char2Code;
-    }
-
-    public CodeUriSet getChar2CodeURISet() {
-      return char2CodeURISet;
-    }
-
-    public CodeUriSet getChar3CodeURISet() {
-      return char3CodeURISet;
-    }
-
-    public CodeUriSet getNumericCodeURISet() {
-      return numericCodeURISet;
-    }
-
-    public String getChar3Code() {
-      return char3Code;
-    }
-
-    public String getNumericCode() {
-      return numericCode;
-    }
-
-    @XmlRootElement
-    @XmlAccessorType(XmlAccessType.FIELD)
-    public static class CodeUriSet {
-
-      @XmlElement private String codespaceURNBasedShort;
-
-      @XmlElement private String codespaceURL;
-
-      @XmlElement private String codespaceURNBased;
-
-      public void setCodespaceURNBasedShort(String codespaceURNBasedShort) {
-        this.codespaceURNBasedShort = codespaceURNBasedShort;
-      }
-
-      public void setCodespaceURL(String codespaceURL) {
-        this.codespaceURL = codespaceURL;
-      }
-
-      public void setCodespaceURNBased(String codespaceURNBased) {
-        this.codespaceURNBased = codespaceURNBased;
-      }
-
-      public void setCodespaceURN(String codespaceURN) {
-        this.codespaceURN = codespaceURN;
-      }
-
-      private String codespaceURN;
-
-      public String getCodespaceURNBasedShort() {
-        return codespaceURNBasedShort;
-      }
-
-      public String getCodespaceURL() {
-        return codespaceURL;
-      }
-
-      public String getCodespaceURNBased() {
-        return codespaceURNBased;
-      }
-
-      public String getCodespaceURN() {
-        return codespaceURN;
-      }
-    }
-  }
-
-  @XmlRootElement
-  @XmlAccessorType(XmlAccessType.FIELD)
-  public static class Division {
-
-    @XmlAttribute private String codeSpace;
-
-    @XmlValue private String content;
-
-    public void setCodeSpace(String codeSpace) {
-      this.codeSpace = codeSpace;
-    }
-
-    public void setContent(String content) {
-      this.content = content;
-    }
-
-    public String getCodeSpace() {
-      return codeSpace;
-    }
-
-    public String getContent() {
-      return content;
-    }
-  }
-
-  @XmlRootElement
-  @XmlAccessorType(XmlAccessType.FIELD)
-  public static class LocalShortName {
-
-    @XmlElement private String name;
-
-    public void setName(String name) {
-      this.name = name;
-    }
-
-    public void setIso6393Char3Code(String iso6393Char3Code) {
-      this.iso6393Char3Code = iso6393Char3Code;
-    }
-
-    private String iso6393Char3Code;
-
-    public String getIso6393Char3Code() {
-      return iso6393Char3Code;
-    }
-
-    public String getName() {
-      return name;
-    }
   }
 }
