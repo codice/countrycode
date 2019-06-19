@@ -23,10 +23,6 @@
     <artifactId>genc</artifactId>
     <name>Country Code :: Standards :: GENC 3.0.0</name>
 
-    <properties>
-        <jaxb.version>2.2.11</jaxb.version>
-    </properties>
-
     <dependencies>
         <dependency>
             <groupId>org.codice.countrycode</groupId>
@@ -74,6 +70,25 @@
                 <configuration>
                     <excludes>**/GENC Standard Ed3.0.xml</excludes>
                 </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>3.0.0</version>
+                <executions>
+                    <execution>
+                        <id>attach-javadocs</id>
+                        <configuration>
+                            <sourceFileExcludes>
+                                <exclude>package-info.java</exclude>
+                            </sourceFileExcludes>
+                            <sourcepath>${project.basedir}/src/main/java/org/codice/countrycode/standards/genc</sourcepath>
+                        </configuration>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
             <plugin>
                 <groupId>org.jacoco</groupId>
