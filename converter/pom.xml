@@ -136,9 +136,7 @@
                             *
                         </Import-Package>
                         <Export-Package>
-                            org.codice.countrycode.standard,
-                            org.codice.countrycode.converter,
-                            org.codice.countrycode
+                            org.codice.countrycode*
                         </Export-Package>
                     </instructions>
                 </configuration>
