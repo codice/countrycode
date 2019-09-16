@@ -79,6 +79,28 @@ public class CountryCodeSimpleTest {
     assertThat(0, equalTo(result.size()));
   }
 
+  @Test
+  public void testConversionNoNumericCode() {
+    Set<String> result = CountryCodeSimple.convert("IP", FIPS_10_4_ALPHA2, ISO_3166_1_ALPHA2);
+    assertThat(1, equalTo(result.size()));
+    assertThat("CP", equalTo(result.iterator().next()));
+
+    result = CountryCodeSimple.convert("IP", FIPS_10_4_ALPHA2, ISO_3166_1_ALPHA3);
+    assertThat(1, equalTo(result.size()));
+    assertThat("CPT", equalTo(result.iterator().next()));
+
+    result = CountryCodeSimple.convert("IP", FIPS_10_4_ALPHA2, ISO_3166_1_NUMERIC);
+    assertThat(0, equalTo(result.size()));
+
+    result = CountryCodeSimple.convert("CP", ISO_3166_1_ALPHA2, FIPS_10_4_ALPHA2);
+    assertThat(1, equalTo(result.size()));
+    assertThat("IP", equalTo(result.iterator().next()));
+
+    result = CountryCodeSimple.convert("CPT", ISO_3166_1_ALPHA3, FIPS_10_4_ALPHA2);
+    assertThat(1, equalTo(result.size()));
+    assertThat("IP", equalTo(result.iterator().next()));
+  }
+
   // todo this demonstrates a bug where the input format is ignored by the converter impl
   // we should fix this bug
   @Test
