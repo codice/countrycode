@@ -19,6 +19,6 @@ class Iso3166StandardProviderSpec extends Specification {
 
     def 'test iso3166 provider'() {
         expect:
-        new Iso3166StandardProvider().getStandardEntries().size() == 257
+        new Iso3166StandardProvider().getStandardEntries().size() == 258
     }
 }

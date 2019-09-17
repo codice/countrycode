@@ -282,6 +282,11 @@
     "numeric": "162"
   },
   {
+    "name": "Clipperton Island",
+    "alpha2": "CP",
+    "alpha3": "CPT"
+  },
+  {
     "name": "Cocos (Keeling) Islands",
     "alpha2": "CC",
     "alpha3": "CCK",
