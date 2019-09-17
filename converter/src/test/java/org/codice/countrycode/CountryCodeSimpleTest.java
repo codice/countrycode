@@ -24,6 +24,7 @@ import static org.hamcrest.core.IsEqual.equalTo;
 import static org.junit.Assert.assertThat;
 
 import java.util.Set;
+import org.codice.countrycode.CountryCodeSimple.StandardFormat;
 import org.junit.Ignore;
 import org.junit.Test;
 
@@ -99,6 +100,14 @@ public class CountryCodeSimpleTest {
     result = CountryCodeSimple.convert("CPT", ISO_3166_1_ALPHA3, FIPS_10_4_ALPHA2);
     assertThat(1, equalTo(result.size()));
     assertThat("IP", equalTo(result.iterator().next()));
+  }
+
+  @Test
+  public void testConversionNonExistentCode() {
+    Set<String> result =
+        CountryCodeSimple.convert(
+            "ZZ", StandardFormat.ISO_3166_1_ALPHA2, StandardFormat.GENC_3_0_0_ALPHA3);
+    assertThat(0, equalTo(result.size()));
   }
 
   // todo this demonstrates a bug where the input format is ignored by the converter impl

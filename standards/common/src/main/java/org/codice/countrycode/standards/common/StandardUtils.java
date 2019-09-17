@@ -13,6 +13,7 @@
  */
 package org.codice.countrycode.standards.common;
 
+import java.util.Objects;
 import org.codice.countrycode.standard.CountryCode;
 
 public class StandardUtils {
@@ -24,6 +25,8 @@ public class StandardUtils {
         .getStandard()
         .getFormatNames()
         .stream()
-        .anyMatch(formatName -> countryCode.getAsFormat(formatName).equalsIgnoreCase(value));
+        .map(formatName -> countryCode.getAsFormat(formatName))
+        .filter(Objects::nonNull)
+        .anyMatch(formatName -> formatName.equalsIgnoreCase(value));
   }
 }
