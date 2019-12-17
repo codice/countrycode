@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/codice/countrycode.svg?branch=master)](https://travis-ci.org/codice/countrycode)
+
 # Country Code Library
 
 The Country Code library provides facilities for converting between different country code standards.
