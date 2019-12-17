@@ -5,6 +5,29 @@
 The Country Code library provides facilities for converting between different country code standards.
 This software is currently in a Beta form and is subject to change
 
+## Usage
+
+Add the Codice Repository to your build
+```
+        <repository>
+            <id>codice</id>
+            <name>Codice Repository</name>
+            <url>https://artifacts.codice.org/content/groups/public/</url>
+        </repository>
+```
+
+Add the Converter Dependency
+
+```
+        <dependency>
+            <groupId>org.codice.countrycode</groupId>
+            <artifactId>converter</artifactId>
+            <version>${countryconverter.version}</version>
+        </dependency>
+```
+
+Happy Converting!
+
 ## CountryCodeSimple
 
 Simple interface for the typical use case of converting between the following standards: ISO 3166-1, 
