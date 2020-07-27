@@ -21,7 +21,7 @@
     </parent>
 
     <artifactId>gec</artifactId>
-    <name>Country Code :: Standards :: GEC</name>
+    <name>Country Code :: Standards :: GEC 18</name>
 
     <dependencies>
         <dependency>

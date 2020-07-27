@@ -17,9 +17,9 @@ import static org.codice.countrycode.CountryCodeSimple.Format.ALPHA2;
 import static org.codice.countrycode.CountryCodeSimple.Format.ALPHA3;
 import static org.codice.countrycode.CountryCodeSimple.Format.NUMERIC;
 import static org.codice.countrycode.CountryCodeSimple.Standard.FIPS_10_4;
+import static org.codice.countrycode.CountryCodeSimple.Standard.GEC_18;
 import static org.codice.countrycode.CountryCodeSimple.Standard.GENC_3_0_0;
 import static org.codice.countrycode.CountryCodeSimple.Standard.ISO_3166_1;
-import static org.codice.countrycode.CountryCodeSimple.Standard.GEC_18;
 
 import java.util.Collections;
 import java.util.HashSet;

@@ -43,9 +43,7 @@ public class CountryCodeSimpleTest {
     assertThat(
         "CHN",
         equalTo(
-            CountryCodeSimple.convert("CH", GEC_18_ALPHA2, ISO_3166_1_ALPHA3)
-                .iterator()
-                .next()));
+            CountryCodeSimple.convert("CH", GEC_18_ALPHA2, ISO_3166_1_ALPHA3).iterator().next()));
     assertThat(
         "AQ",
         equalTo(
