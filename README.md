@@ -31,7 +31,7 @@ Happy Converting!
 ## CountryCodeSimple
 
 Simple interface for the typical use case of converting between the following standards: ISO 3166-1, 
-GENC 3.0.0, and FIPS 10-4. 
+GENC 3.0.0, and FIPS 10-4, GEC Update 18.
  
 ```   
 String countryCode = CountryCodeSimple.convert("CH", FIPS_10_4_ALPHA2, ISO_3166_1_ALPHA3)
@@ -42,9 +42,11 @@ assert countryCode.equals("CHN");
 Standards are available in various formats. For example, the ISO 3166-1 `alpha2` format for the country
 Afghanistan is `AF`, while its `alpha3` and `numeric` formats are `AFG` and `004`, respectively.
 
-There are 3 currently supported standards and their respective available formats (the `name` and `version`
+There are 4 currently supported standards and their respective available formats (the `name` and `version`
 in parenthesis, respectively, can be used to lookup the standard in the default `StandardRegistry`):
 * FIPS 10-4 (`FIPS`, `10-4`)
+  - alpha2
+* GEC 18 (`GEC`, `18`)
   - alpha2
 * ISO 3166-1 (`ISO3166`, `1`)
   - alpha2

@@ -43,6 +43,11 @@
             <artifactId>iso</artifactId>
             <version>${project.version}</version>
         </dependency>
+        <dependency>
+            <groupId>org.codice.countrycode</groupId>
+            <artifactId>gec</artifactId>
+            <version>${project.version}</version>
+        </dependency>
 
         <!-- Third Party -->
         <dependency>

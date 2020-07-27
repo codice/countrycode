@@ -14,6 +14,7 @@
 package org.codice.countrycode;
 
 import static org.codice.countrycode.CountryCodeSimple.StandardFormat.FIPS_10_4_ALPHA2;
+import static org.codice.countrycode.CountryCodeSimple.StandardFormat.GEC_18_ALPHA2;
 import static org.codice.countrycode.CountryCodeSimple.StandardFormat.GENC_3_0_0_ALPHA2;
 import static org.codice.countrycode.CountryCodeSimple.StandardFormat.GENC_3_0_0_ALPHA3;
 import static org.codice.countrycode.CountryCodeSimple.StandardFormat.GENC_3_0_0_NUMERIC;
@@ -37,6 +38,12 @@ public class CountryCodeSimpleTest {
         "CHN",
         equalTo(
             CountryCodeSimple.convert("CH", FIPS_10_4_ALPHA2, ISO_3166_1_ALPHA3)
+                .iterator()
+                .next()));
+    assertThat(
+        "CHN",
+        equalTo(
+            CountryCodeSimple.convert("CH", GEC_18_ALPHA2, ISO_3166_1_ALPHA3)
                 .iterator()
                 .next()));
     assertThat(
