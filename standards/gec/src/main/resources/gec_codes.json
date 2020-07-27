@@ -1,0 +1,1054 @@
+[
+  {
+    "alpha2Code": "AA",
+    "shortName": "Aruba"
+  },
+  {
+    "alpha2Code": "AC",
+    "shortName": "Antigua and Barbuda"
+  },
+  {
+    "alpha2Code": "AE",
+    "shortName": "United Arab Emirates"
+  },
+  {
+    "alpha2Code": "AF",
+    "shortName": "Islamic Republic of Afghanistan"
+  },
+  {
+    "alpha2Code": "AG",
+    "shortName": "People’s Democratic Republic of Algeria"
+  },
+  {
+    "alpha2Code": "AJ",
+    "shortName": "Republic of Azerbaijan"
+  },
+  {
+    "alpha2Code": "AL",
+    "shortName": "Republic of Albania"
+  },
+  {
+    "alpha2Code": "AM",
+    "shortName": "Republic of Armenia"
+  },
+  {
+    "alpha2Code": "AN",
+    "shortName": "Principality of Andorra"
+  },
+  {
+    "alpha2Code": "AO",
+    "shortName": "Republic of Angola"
+  },
+  {
+    "alpha2Code": "AQ",
+    "shortName": "Territory of American Samoa"
+  },
+  {
+    "alpha2Code": "AR",
+    "shortName": "Argentine Republic"
+  },
+  {
+    "alpha2Code": "AS",
+    "shortName": "Commonwealth of Australia"
+  },
+  {
+    "alpha2Code": "AT",
+    "shortName": "Territory of Ashmore and Cartier Islands"
+  },
+  {
+    "alpha2Code": "AU",
+    "shortName": "Republic of Austria"
+  },
+  {
+    "alpha2Code": "AV",
+    "shortName": "Anguilla"
+  },
+  {
+    "alpha2Code": "AX",
+    "shortName": "Akrotiri"
+  },
+  {
+    "alpha2Code": "AY",
+    "shortName": "Antarctica"
+  },
+  {
+    "alpha2Code": "BA",
+    "shortName": "Kingdom of Bahrain"
+  },
+  {
+    "alpha2Code": "BB",
+    "shortName": "Barbados"
+  },
+  {
+    "alpha2Code": "BC",
+    "shortName": "Republic of Botswana"
+  },
+  {
+    "alpha2Code": "BD",
+    "shortName": "Bermuda"
+  },
+  {
+    "alpha2Code": "BE",
+    "shortName": "Kingdom of Belgium"
+  },
+  {
+    "alpha2Code": "BF",
+    "shortName": "Commonwealth of The Bahamas"
+  },
+  {
+    "alpha2Code": "BG",
+    "shortName": "People’s Republic of Bangladesh"
+  },
+  {
+    "alpha2Code": "BH",
+    "shortName": "Belize"
+  },
+  {
+    "alpha2Code": "BK",
+    "shortName": "Bosnia and Herzegovina"
+  },
+  {
+    "alpha2Code": "BL",
+    "shortName": "Plurinational State of Bolivia"
+  },
+  {
+    "alpha2Code": "BM",
+    "shortName": "Union of Burma"
+  },
+  {
+    "alpha2Code": "BN",
+    "shortName": "Republic of Benin"
+  },
+  {
+    "alpha2Code": "BO",
+    "shortName": "Republic of Belarus"
+  },
+  {
+    "alpha2Code": "BP",
+    "shortName": "Solomon Islands"
+  },
+  {
+    "alpha2Code": "BQ",
+    "shortName": "Navassa Island"
+  },
+  {
+    "alpha2Code": "BR",
+    "shortName": "Federative Republic of Brazil"
+  },
+  {
+    "alpha2Code": "BT",
+    "shortName": "Kingdom of Bhutan"
+  },
+  {
+    "alpha2Code": "BU",
+    "shortName": "Republic of Bulgaria"
+  },
+  {
+    "alpha2Code": "BV",
+    "shortName": "Bouvet Island"
+  },
+  {
+    "alpha2Code": "BX",
+    "shortName": "Brunei Darussalam"
+  },
+  {
+    "alpha2Code": "BY",
+    "shortName": "Republic of Burundi"
+  },
+  {
+    "alpha2Code": "CA",
+    "shortName": "Canada"
+  },
+  {
+    "alpha2Code": "CB",
+    "shortName": "Kingdom of Cambodia"
+  },
+  {
+    "alpha2Code": "CD",
+    "shortName": "Republic of Chad"
+  },
+  {
+    "alpha2Code": "CE",
+    "shortName": "Democratic Socialist Republic of Sri Lanka"
+  },
+  {
+    "alpha2Code": "CF",
+    "shortName": "Republic of the Congo"
+  },
+  {
+    "alpha2Code": "CG",
+    "shortName": "Democratic Republic of the Congo"
+  },
+  {
+    "alpha2Code": "CH",
+    "shortName": "People’s Republic of China"
+  },
+  {
+    "alpha2Code": "CI",
+    "shortName": "Republic of Chile"
+  },
+  {
+    "alpha2Code": "CJ",
+    "shortName": "Cayman Islands"
+  },
+  {
+    "alpha2Code": "CK",
+    "shortName": "Territory of Cocos (Keeling) Islands"
+  },
+  {
+    "alpha2Code": "CM",
+    "shortName": "Republic of Cameroon"
+  },
+  {
+    "alpha2Code": "CN",
+    "shortName": "Union of the Comoros"
+  },
+  {
+    "alpha2Code": "CO",
+    "shortName": "Republic of Colombia"
+  },
+  {
+    "alpha2Code": "CQ",
+    "shortName": "Commonwealth of the Northern Mariana Islands"
+  },
+  {
+    "alpha2Code": "CR",
+    "shortName": "Coral Sea Islands Territory"
+  },
+  {
+    "alpha2Code": "CS",
+    "shortName": "Republic of Costa Rica"
+  },
+  {
+    "alpha2Code": "CT",
+    "shortName": "Central African Republic"
+  },
+  {
+    "alpha2Code": "CU",
+    "shortName": "Republic of Cuba"
+  },
+  {
+    "alpha2Code": "CV",
+    "shortName": "Republic of Cabo Verde"
+  },
+  {
+    "alpha2Code": "CW",
+    "shortName": "Cook Islands"
+  },
+  {
+    "alpha2Code": "CY",
+    "shortName": "Republic of Cyprus"
+  },
+  {
+    "alpha2Code": "DA",
+    "shortName": "Kingdom of Denmark"
+  },
+  {
+    "alpha2Code": "DJ",
+    "shortName": "Republic of Djibouti"
+  },
+  {
+    "alpha2Code": "DO",
+    "shortName": "Commonwealth of Dominica"
+  },
+  {
+    "alpha2Code": "DQ",
+    "shortName": "Jarvis Island"
+  },
+  {
+    "alpha2Code": "DR",
+    "shortName": "Dominican Republic"
+  },
+  {
+    "alpha2Code": "DX",
+    "shortName": "Dhekelia"
+  },
+  {
+    "alpha2Code": "EC",
+    "shortName": "Republic of Ecuador"
+  },
+  {
+    "alpha2Code": "EG",
+    "shortName": "Arab Republic of Egypt"
+  },
+  {
+    "alpha2Code": "EI",
+    "shortName": "Ireland"
+  },
+  {
+    "alpha2Code": "EK",
+    "shortName": "Republic of Equatorial Guinea"
+  },
+  {
+    "alpha2Code": "EN",
+    "shortName": "Republic of Estonia"
+  },
+  {
+    "alpha2Code": "ER",
+    "shortName": "State of Eritrea"
+  },
+  {
+    "alpha2Code": "ES",
+    "shortName": "Republic of El Salvador"
+  },
+  {
+    "alpha2Code": "ET",
+    "shortName": "Federal Democratic Republic of Ethiopia"
+  },
+  {
+    "alpha2Code": "EZ",
+    "shortName": "Czech Republic"
+  },
+  {
+    "alpha2Code": "FG",
+    "shortName": "Territorial Collectivity of Guiana"
+  },
+  {
+    "alpha2Code": "FI",
+    "shortName": "Republic of Finland"
+  },
+  {
+    "alpha2Code": "FJ",
+    "shortName": "Republic of Fiji"
+  },
+  {
+    "alpha2Code": "FK",
+    "shortName": "Falkland Islands (Islas Malvinas)"
+  },
+  {
+    "alpha2Code": "FM",
+    "shortName": "Federated States of Micronesia"
+  },
+  {
+    "alpha2Code": "FO",
+    "shortName": "Faroe Islands"
+  },
+  {
+    "alpha2Code": "FP",
+    "shortName": "French Polynesia"
+  },
+  {
+    "alpha2Code": "FQ",
+    "shortName": "Baker Island"
+  },
+  {
+    "alpha2Code": "FR",
+    "shortName": "French Republic"
+  },
+  {
+    "alpha2Code": "FS",
+    "shortName": "French Southern and Antarctic Lands"
+  },
+  {
+    "alpha2Code": "GA",
+    "shortName": "Republic of The Gambia"
+  },
+  {
+    "alpha2Code": "GB",
+    "shortName": "Gabonese Republic"
+  },
+  {
+    "alpha2Code": "GG",
+    "shortName": "Georgia"
+  },
+  {
+    "alpha2Code": "GH",
+    "shortName": "Republic of Ghana"
+  },
+  {
+    "alpha2Code": "GI",
+    "shortName": "Gibraltar"
+  },
+  {
+    "alpha2Code": "GJ",
+    "shortName": "Grenada"
+  },
+  {
+    "alpha2Code": "GK",
+    "shortName": "Bailiwick of Guernsey"
+  },
+  {
+    "alpha2Code": "GL",
+    "shortName": "Greenland"
+  },
+  {
+    "alpha2Code": "GM",
+    "shortName": "Federal Republic of Germany"
+  },
+  {
+    "alpha2Code": "GP",
+    "shortName": "Region of Guadeloupe"
+  },
+  {
+    "alpha2Code": "GQ",
+    "shortName": "Territory of Guam"
+  },
+  {
+    "alpha2Code": "GR",
+    "shortName": "Hellenic Republic"
+  },
+  {
+    "alpha2Code": "GT",
+    "shortName": "Republic of Guatemala"
+  },
+  {
+    "alpha2Code": "GV",
+    "shortName": "Republic of Guinea"
+  },
+  {
+    "alpha2Code": "GY",
+    "shortName": "Co-operative Republic of Guyana"
+  },
+  {
+    "alpha2Code": "GZ",
+    "shortName": "Gaza Strip"
+  },
+  {
+    "alpha2Code": "HA",
+    "shortName": "Republic of Haiti"
+  },
+  {
+    "alpha2Code": "HK",
+    "shortName": "Hong Kong Special Administrative Region"
+  },
+  {
+    "alpha2Code": "HM",
+    "shortName": "Territory of Heard Island and McDonald Islands"
+  },
+  {
+    "alpha2Code": "HO",
+    "shortName": "Republic of Honduras"
+  },
+  {
+    "alpha2Code": "HQ",
+    "shortName": "Howland Island"
+  },
+  {
+    "alpha2Code": "HR",
+    "shortName": "Republic of Croatia"
+  },
+  {
+    "alpha2Code": "HU",
+    "shortName": "Hungary"
+  },
+  {
+    "alpha2Code": "IC",
+    "shortName": "Republic of Iceland"
+  },
+  {
+    "alpha2Code": "ID",
+    "shortName": "Republic of Indonesia"
+  },
+  {
+    "alpha2Code": "IM",
+    "shortName": "Isle of Man"
+  },
+  {
+    "alpha2Code": "IN",
+    "shortName": "Republic of India"
+  },
+  {
+    "alpha2Code": "IO",
+    "shortName": "British Indian Ocean Territory"
+  },
+  {
+    "alpha2Code": "IP",
+    "shortName": "Clipperton Island"
+  },
+  {
+    "alpha2Code": "IR",
+    "shortName": "Islamic Republic of Iran"
+  },
+  {
+    "alpha2Code": "IS",
+    "shortName": "State of Israel"
+  },
+  {
+    "alpha2Code": "IT",
+    "shortName": "Italian Republic"
+  },
+  {
+    "alpha2Code": "IV",
+    "shortName": "Republic of Côte d’Ivoire"
+  },
+  {
+    "alpha2Code": "IZ",
+    "shortName": "Republic of Iraq"
+  },
+  {
+    "alpha2Code": "JA",
+    "shortName": "Japan"
+  },
+  {
+    "alpha2Code": "JE",
+    "shortName": "Bailiwick of Jersey"
+  },
+  {
+    "alpha2Code": "JM",
+    "shortName": "Jamaica"
+  },
+  {
+    "alpha2Code": "JN",
+    "shortName": "Jan Mayen"
+  },
+  {
+    "alpha2Code": "JO",
+    "shortName": "Hashemite Kingdom of Jordan"
+  },
+  {
+    "alpha2Code": "JQ",
+    "shortName": "Johnston Atoll"
+  },
+  {
+    "alpha2Code": "KE",
+    "shortName": "Republic of Kenya"
+  },
+  {
+    "alpha2Code": "KG",
+    "shortName": "Kyrgyz Republic"
+  },
+  {
+    "alpha2Code": "KN",
+    "shortName": "Democratic People’s Republic of Korea"
+  },
+  {
+    "alpha2Code": "KQ",
+    "shortName": "Kingman Reef"
+  },
+  {
+    "alpha2Code": "KR",
+    "shortName": "Republic of Kiribati"
+  },
+  {
+    "alpha2Code": "KS",
+    "shortName": "Republic of Korea"
+  },
+  {
+    "alpha2Code": "KT",
+    "shortName": "Territory of Christmas Island"
+  },
+  {
+    "alpha2Code": "KU",
+    "shortName": "State of Kuwait"
+  },
+  {
+    "alpha2Code": "KV",
+    "shortName": "Republic of Kosovo"
+  },
+  {
+    "alpha2Code": "KZ",
+    "shortName": "Republic of Kazakhstan"
+  },
+  {
+    "alpha2Code": "LA",
+    "shortName": "Lao People’s Democratic Republic"
+  },
+  {
+    "alpha2Code": "LE",
+    "shortName": "Lebanese Republic"
+  },
+  {
+    "alpha2Code": "LG",
+    "shortName": "Republic of Latvia"
+  },
+  {
+    "alpha2Code": "LH",
+    "shortName": "Republic of Lithuania"
+  },
+  {
+    "alpha2Code": "LI",
+    "shortName": "Republic of Liberia"
+  },
+  {
+    "alpha2Code": "LO",
+    "shortName": "Slovak Republic"
+  },
+  {
+    "alpha2Code": "LQ",
+    "shortName": "Palmyra Atoll"
+  },
+  {
+    "alpha2Code": "LS",
+    "shortName": "Principality of Liechtenstein"
+  },
+  {
+    "alpha2Code": "LT",
+    "shortName": "Kingdom of Lesotho"
+  },
+  {
+    "alpha2Code": "LU",
+    "shortName": "Grand Duchy of Luxembourg"
+  },
+  {
+    "alpha2Code": "LY",
+    "shortName": "State of Libya"
+  },
+  {
+    "alpha2Code": "MA",
+    "shortName": "Republic of Madagascar"
+  },
+  {
+    "alpha2Code": "MB",
+    "shortName": "Territorial Collectivity of Martinique"
+  },
+  {
+    "alpha2Code": "MC",
+    "shortName": "Macau Special Administrative Region"
+  },
+  {
+    "alpha2Code": "MD",
+    "shortName": "Republic of Moldova"
+  },
+  {
+    "alpha2Code": "MF",
+    "shortName": "Department of Mayotte"
+  },
+  {
+    "alpha2Code": "MG",
+    "shortName": "Mongolia"
+  },
+  {
+    "alpha2Code": "MH",
+    "shortName": "Montserrat"
+  },
+  {
+    "alpha2Code": "MI",
+    "shortName": "Republic of Malawi"
+  },
+  {
+    "alpha2Code": "MJ",
+    "shortName": "Montenegro"
+  },
+  {
+    "alpha2Code": "MK",
+    "shortName": "Republic of North Macedonia"
+  },
+  {
+    "alpha2Code": "ML",
+    "shortName": "Republic of Mali"
+  },
+  {
+    "alpha2Code": "MN",
+    "shortName": "Principality of Monaco"
+  },
+  {
+    "alpha2Code": "MO",
+    "shortName": "Kingdom of Morocco"
+  },
+  {
+    "alpha2Code": "MP",
+    "shortName": "Republic of Mauritius"
+  },
+  {
+    "alpha2Code": "MQ",
+    "shortName": "Midway Islands"
+  },
+  {
+    "alpha2Code": "MR",
+    "shortName": "Islamic Republic of Mauritania"
+  },
+  {
+    "alpha2Code": "MT",
+    "shortName": "Republic of Malta"
+  },
+  {
+    "alpha2Code": "MU",
+    "shortName": "Sultanate of Oman"
+  },
+  {
+    "alpha2Code": "MV",
+    "shortName": "Republic of Maldives"
+  },
+  {
+    "alpha2Code": "MX",
+    "shortName": "United Mexican States"
+  },
+  {
+    "alpha2Code": "MY",
+    "shortName": "Malaysia"
+  },
+  {
+    "alpha2Code": "MZ",
+    "shortName": "Republic of Mozambique"
+  },
+  {
+    "alpha2Code": "NC",
+    "shortName": "New Caledonia"
+  },
+  {
+    "alpha2Code": "NE",
+    "shortName": "Niue"
+  },
+  {
+    "alpha2Code": "NF",
+    "shortName": "Territory of Norfolk Island"
+  },
+  {
+    "alpha2Code": "NG",
+    "shortName": "Republic of Niger"
+  },
+  {
+    "alpha2Code": "NH",
+    "shortName": "Republic of Vanuatu"
+  },
+  {
+    "alpha2Code": "NI",
+    "shortName": "Federal Republic of Nigeria"
+  },
+  {
+    "alpha2Code": "NL",
+    "shortName": "Kingdom of the Netherlands"
+  },
+  {
+    "alpha2Code": "NN",
+    "shortName": "Sint Maarten"
+  },
+  {
+    "alpha2Code": "NO",
+    "shortName": "Kingdom of Norway"
+  },
+  {
+    "alpha2Code": "NP",
+    "shortName": "Federal Democratic Republic of Nepal"
+  },
+  {
+    "alpha2Code": "NR",
+    "shortName": "Republic of Nauru"
+  },
+  {
+    "alpha2Code": "NS",
+    "shortName": "Republic of Suriname"
+  },
+  {
+    "alpha2Code": "NU",
+    "shortName": "Republic of Nicaragua"
+  },
+  {
+    "alpha2Code": "NZ",
+    "shortName": "New Zealand"
+  },
+  {
+    "alpha2Code": "OD",
+    "shortName": "Republic of South Sudan"
+  },
+  {
+    "alpha2Code": "PA",
+    "shortName": "Republic of Paraguay"
+  },
+  {
+    "alpha2Code": "PE",
+    "shortName": "Republic of Peru"
+  },
+  {
+    "alpha2Code": "PF",
+    "shortName": "Paracel Islands"
+  },
+  {
+    "alpha2Code": "PG",
+    "shortName": "Spratly Islands"
+  },
+  {
+    "alpha2Code": "PK",
+    "shortName": "Islamic Republic of Pakistan"
+  },
+  {
+    "alpha2Code": "PL",
+    "shortName": "Republic of Poland"
+  },
+  {
+    "alpha2Code": "PM",
+    "shortName": "Republic of Panama"
+  },
+  {
+    "alpha2Code": "PO",
+    "shortName": "Portuguese Republic"
+  },
+  {
+    "alpha2Code": "PP",
+    "shortName": "Independent State of Papua New Guinea"
+  },
+  {
+    "alpha2Code": "PS",
+    "shortName": "Republic of Palau"
+  },
+  {
+    "alpha2Code": "PU",
+    "shortName": "Republic of Guinea-Bissau"
+  },
+  {
+    "alpha2Code": "QA",
+    "shortName": "State of Qatar"
+  },
+  {
+    "alpha2Code": "RE",
+    "shortName": "Region of Reunion"
+  },
+  {
+    "alpha2Code": "RI",
+    "shortName": "Republic of Serbia"
+  },
+  {
+    "alpha2Code": "RM",
+    "shortName": "Republic of the Marshall Islands"
+  },
+  {
+    "alpha2Code": "RN",
+    "shortName": "Saint Martin"
+  },
+  {
+    "alpha2Code": "RO",
+    "shortName": "Romania"
+  },
+  {
+    "alpha2Code": "RP",
+    "shortName": "Republic of the Philippines"
+  },
+  {
+    "alpha2Code": "RQ",
+    "shortName": "Commonwealth of Puerto Rico"
+  },
+  {
+    "alpha2Code": "RS",
+    "shortName": "Russian Federation"
+  },
+  {
+    "alpha2Code": "RW",
+    "shortName": "Republic of Rwanda"
+  },
+  {
+    "alpha2Code": "SA",
+    "shortName": "Kingdom of Saudi Arabia"
+  },
+  {
+    "alpha2Code": "SB",
+    "shortName": "Territorial Collectivity of Saint Pierre and Miquelon"
+  },
+  {
+    "alpha2Code": "SC",
+    "shortName": "Federation of Saint Kitts and Nevis"
+  },
+  {
+    "alpha2Code": "SE",
+    "shortName": "Republic of Seychelles"
+  },
+  {
+    "alpha2Code": "SF",
+    "shortName": "Republic of South Africa"
+  },
+  {
+    "alpha2Code": "SG",
+    "shortName": "Republic of Senegal"
+  },
+  {
+    "alpha2Code": "SI",
+    "shortName": "Republic of Slovenia"
+  },
+  {
+    "alpha2Code": "SL",
+    "shortName": "Republic of Sierra Leone"
+  },
+  {
+    "alpha2Code": "SM",
+    "shortName": "Republic of San Marino"
+  },
+  {
+    "alpha2Code": "SN",
+    "shortName": "Republic of Singapore"
+  },
+  {
+    "alpha2Code": "SO",
+    "shortName": "Federal Republic of Somalia"
+  },
+  {
+    "alpha2Code": "SP",
+    "shortName": "Kingdom of Spain"
+  },
+  {
+    "alpha2Code": "ST",
+    "shortName": "Saint Lucia"
+  },
+  {
+    "alpha2Code": "SU",
+    "shortName": "Republic of the Sudan"
+  },
+  {
+    "alpha2Code": "SV",
+    "shortName": "Svalbard"
+  },
+  {
+    "alpha2Code": "SW",
+    "shortName": "Kingdom of Sweden"
+  },
+  {
+    "alpha2Code": "SX",
+    "shortName": "South Georgia and the South Sandwich Islands"
+  },
+  {
+    "alpha2Code": "SY",
+    "shortName": "Syrian Arab Republic"
+  },
+  {
+    "alpha2Code": "SZ",
+    "shortName": "Swiss Confederation"
+  },
+  {
+    "alpha2Code": "TB",
+    "shortName": "Saint Barthelemy"
+  },
+  {
+    "alpha2Code": "TD",
+    "shortName": "Republic of Trinidad and Tobago"
+  },
+  {
+    "alpha2Code": "TH",
+    "shortName": "Kingdom of Thailand"
+  },
+  {
+    "alpha2Code": "TI",
+    "shortName": "Republic of Tajikistan"
+  },
+  {
+    "alpha2Code": "TK",
+    "shortName": "Turks and Caicos Islands"
+  },
+  {
+    "alpha2Code": "TL",
+    "shortName": "Tokelau"
+  },
+  {
+    "alpha2Code": "TN",
+    "shortName": "Kingdom of Tonga"
+  },
+  {
+    "alpha2Code": "TO",
+    "shortName": "Togolese Republic"
+  },
+  {
+    "alpha2Code": "TP",
+    "shortName": "Democratic Republic of Sao Tome and Principe"
+  },
+  {
+    "alpha2Code": "TS",
+    "shortName": "Republic of Tunisia"
+  },
+  {
+    "alpha2Code": "TT",
+    "shortName": "Democratic Republic of Timor-Leste"
+  },
+  {
+    "alpha2Code": "TU",
+    "shortName": "Republic of Turkey"
+  },
+  {
+    "alpha2Code": "TV",
+    "shortName": "Tuvalu"
+  },
+  {
+    "alpha2Code": "TW",
+    "shortName": "Taiwan"
+  },
+  {
+    "alpha2Code": "TX",
+    "shortName": "Turkmenistan"
+  },
+  {
+    "alpha2Code": "TZ",
+    "shortName": "United Republic of Tanzania"
+  },
+  {
+    "alpha2Code": "UP",
+    "shortName": "Ukraine"
+  },
+  {
+    "alpha2Code": "UC",
+    "shortName": "Curaçao"
+  },
+  {
+    "alpha2Code": "UG",
+    "shortName": "Republic of Uganda"
+  },
+  {
+    "alpha2Code": "UK",
+    "shortName": "United Kingdom of Great Britain and Northern Ireland"
+  },
+  {
+    "alpha2Code": "US",
+    "shortName": "United States of America"
+  },
+  {
+    "alpha2Code": "UV",
+    "shortName": "Burkina Faso"
+  },
+  {
+    "alpha2Code": "UY",
+    "shortName": "Oriental Republic of Uruguay"
+  },
+  {
+    "alpha2Code": "UZ",
+    "shortName": "Republic of Uzbekistan"
+  },
+  {
+    "alpha2Code": "VC",
+    "shortName": "Saint Vincent and the Grenadines"
+  },
+  {
+    "alpha2Code": "VE",
+    "shortName": "Bolivarian Republic of Venezuela"
+  },
+  {
+    "alpha2Code": "VI",
+    "shortName": "British Virgin Islands"
+  },
+  {
+    "alpha2Code": "VM",
+    "shortName": "Socialist Republic of Vietnam"
+  },
+  {
+    "alpha2Code": "VQ",
+    "shortName": "United States Virgin Islands"
+  },
+  {
+    "alpha2Code": "VT",
+    "shortName": "Vatican City State"
+  },
+  {
+    "alpha2Code": "WA",
+    "shortName": "Republic of Namibia"
+  },
+  {
+    "alpha2Code": "WE",
+    "shortName": "West Bank"
+  },
+  {
+    "alpha2Code": "WF",
+    "shortName": "Wallis and Futuna"
+  },
+  {
+    "alpha2Code": "WI",
+    "shortName": "Western Sahara"
+  },
+  {
+    "alpha2Code": "WQ",
+    "shortName": "Wake Island"
+  },
+  {
+    "alpha2Code": "WS",
+    "shortName": "Independent State of Samoa"
+  },
+  {
+    "alpha2Code": "WZ",
+    "shortName": "Kingdom of Eswatini"
+  },
+  {
+    "alpha2Code": "YM",
+    "shortName": "Republic of Yemen"
+  },
+  {
+    "alpha2Code": "ZA",
+    "shortName": "Republic of Zambia"
+  },
+  {
+    "alpha2Code": "ZI",
+    "shortName": "Republic of Zimbabwe"
+  }
+]
