@@ -20,6 +20,7 @@ import java.util.Set;
 import java.util.stream.Collectors;
 import org.apache.commons.lang3.StringUtils;
 import org.codice.countrycode.standards.fips.FipsJsonStandardProvider;
+import org.codice.countrycode.standards.gec.GecJsonStandardProvider;
 import org.codice.countrycode.standards.genc.provider.GencXmlStandardProvider;
 import org.codice.countrycode.standards.iso.Iso3166StandardProvider;
 
@@ -41,6 +42,7 @@ public class StandardRegistryImpl implements StandardRegistry {
     standardProviders.add(new FipsJsonStandardProvider());
     standardProviders.add(new GencXmlStandardProvider());
     standardProviders.add(new Iso3166StandardProvider());
+    standardProviders.add(new GecJsonStandardProvider());
   }
 
   @Override

@@ -20,8 +20,8 @@
         <version>0.1.9-SNAPSHOT</version>
     </parent>
 
-    <artifactId>standard-registry</artifactId>
-    <name>Country Code :: Standards :: Standard Registry</name>
+    <artifactId>gec</artifactId>
+    <name>Country Code :: Standards :: GEC 18</name>
 
     <dependencies>
         <dependency>
@@ -30,30 +30,35 @@
         </dependency>
         <dependency>
             <groupId>org.codice.countrycode</groupId>
-            <artifactId>genc</artifactId>
-            <version>${project.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.codice.countrycode</groupId>
-            <artifactId>fips</artifactId>
-            <version>${project.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.codice.countrycode</groupId>
-            <artifactId>iso</artifactId>
-            <version>${project.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.codice.countrycode</groupId>
-            <artifactId>gec</artifactId>
+            <artifactId>common</artifactId>
             <version>${project.version}</version>
         </dependency>
 
         <!-- Third Party -->
         <dependency>
+            <groupId>com.google.code.gson</groupId>
+            <artifactId>gson</artifactId>
+            <version>${gson.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+            <version>${apache.commons.io.version}</version>
+        </dependency>
+        <dependency>
             <groupId>org.apache.commons</groupId>
-            <artifactId>commons-lang3</artifactId>
-            <version>${apache.commons.lang3.version}</version>
+            <artifactId>commons-collections4</artifactId>
+            <version>${apache.commons.collections.version}</version>
+        </dependency>
+
+        <!-- Logging Dependencies -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-simple</artifactId>
         </dependency>
     </dependencies>
 
@@ -77,17 +82,17 @@
                                         <limit>
                                             <counter>INSTRUCTION</counter>
                                             <value>COVEREDRATIO</value>
-                                            <minimum>0.00</minimum>
+                                            <minimum>0.74</minimum>
                                         </limit>
                                         <limit>
                                             <counter>BRANCH</counter>
                                             <value>COVEREDRATIO</value>
-                                            <minimum>0.00</minimum>
+                                            <minimum>0.73</minimum>
                                         </limit>
                                         <limit>
                                             <counter>COMPLEXITY</counter>
                                             <value>COVEREDRATIO</value>
-                                            <minimum>0.00</minimum>
+                                            <minimum>0.64</minimum>
                                         </limit>
                                     </limits>
                                 </rule>

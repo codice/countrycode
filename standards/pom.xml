@@ -36,6 +36,7 @@
 
     <modules>
         <module>genc</module>
+        <module>gec</module>
         <module>iso</module>
         <module>fips</module>
         <module>common</module>

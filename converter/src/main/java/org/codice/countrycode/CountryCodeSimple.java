@@ -17,6 +17,7 @@ import static org.codice.countrycode.CountryCodeSimple.Format.ALPHA2;
 import static org.codice.countrycode.CountryCodeSimple.Format.ALPHA3;
 import static org.codice.countrycode.CountryCodeSimple.Format.NUMERIC;
 import static org.codice.countrycode.CountryCodeSimple.Standard.FIPS_10_4;
+import static org.codice.countrycode.CountryCodeSimple.Standard.GEC_18;
 import static org.codice.countrycode.CountryCodeSimple.Standard.GENC_3_0_0;
 import static org.codice.countrycode.CountryCodeSimple.Standard.ISO_3166_1;
 
@@ -49,9 +50,13 @@ public class CountryCodeSimple {
   private static final String GENC = "GENC";
   private static final String GENC_VERSION = "3.0.0";
 
+  private static final String GEC = "GEC";
+  private static final String GEC_VERSION = "18";
+
   private static final StandardProvider FIPS_STANDARD;
   private static final StandardProvider ISO_STANDARD;
   private static final StandardProvider GENC_STANDARD;
+  private static final StandardProvider GEC_STANDARD;
 
   private static final Converter CONVERTER = new CountryCodeConverter();
 
@@ -60,10 +65,12 @@ public class CountryCodeSimple {
     FIPS_STANDARD = registry.lookup(FIPS, FIPS_VERSION);
     ISO_STANDARD = registry.lookup(ISO, ISO_VERSION);
     GENC_STANDARD = registry.lookup(GENC, GENC_VERSION);
+    GEC_STANDARD = registry.lookup(GEC, GEC_VERSION);
   }
 
   public enum StandardFormat {
     FIPS_10_4_ALPHA2(FIPS_10_4, ALPHA2),
+    GEC_18_ALPHA2(GEC_18, ALPHA2),
     ISO_3166_1_ALPHA2(ISO_3166_1, ALPHA2),
     ISO_3166_1_ALPHA3(ISO_3166_1, ALPHA3),
     ISO_3166_1_NUMERIC(ISO_3166_1, NUMERIC),
@@ -91,7 +98,8 @@ public class CountryCodeSimple {
   public enum Standard {
     FIPS_10_4(FIPS, FIPS_VERSION, FIPS_STANDARD),
     ISO_3166_1(ISO, ISO_VERSION, ISO_STANDARD),
-    GENC_3_0_0(GENC, GENC_VERSION, GENC_STANDARD);
+    GENC_3_0_0(GENC, GENC_VERSION, GENC_STANDARD),
+    GEC_18(GEC, GEC_VERSION, GEC_STANDARD);
 
     private final String name;
     private final String version;
