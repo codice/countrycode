@@ -736,6 +736,10 @@
     "shortName": "Suriname"
   },
   {
+    "alpha2Code": "NT",
+    "shortName": "Netherlands Antilles"
+  },
+  {
     "alpha2Code": "NU",
     "shortName": "Nicaragua"
   },

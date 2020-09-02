@@ -19,6 +19,6 @@ class FipsJsonStandardProviderSpec extends Specification {
 
     def 'test fips standard provider'() {
         expect:
-        new FipsJsonStandardProvider().getStandardEntries().size() == 271
+        new FipsJsonStandardProvider().getStandardEntries().size() == 272
     }
 }

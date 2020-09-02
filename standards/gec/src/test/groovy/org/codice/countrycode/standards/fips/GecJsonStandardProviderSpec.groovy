@@ -19,6 +19,6 @@ class GecJsonStandardProviderSpec extends Specification {
 
     def 'test gec standard provider'() {
         expect:
-        new GecJsonStandardProvider().getStandardEntries().size() == 263
+        new GecJsonStandardProvider().getStandardEntries().size() == 265
     }
 }
