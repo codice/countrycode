@@ -134,6 +134,11 @@ public class CountryCodeSimple {
     Format(String formatString) {
       this.formatString = formatString;
     }
+
+    @Override
+    public String toString() {
+      return this.formatString;
+    }
   }
 
   /** Don't let anyone instantiate this class */
