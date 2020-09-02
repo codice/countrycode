@@ -736,6 +736,10 @@
     "shortName": "Republic of Paraguay"
   },
   {
+    "alpha2Code": "PC",
+    "shortName": "Pitcairn Islands"
+  },
+  {
     "alpha2Code": "PE",
     "shortName": "Republic of Peru"
   },
@@ -838,6 +842,10 @@
   {
     "alpha2Code": "SG",
     "shortName": "Republic of Senegal"
+  },
+  {
+    "alpha2Code": "SH",
+    "shortName": "Saint Helena, Ascension, and Tristan da Cunha"
   },
   {
     "alpha2Code": "SI",
