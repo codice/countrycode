@@ -37,7 +37,7 @@
         <ddf.version>2.11.3</ddf.version>
         <ddf.support.version>2.3.12</ddf.support.version>
         <guava.version>18.0</guava.version>
-        <apache.commons.io.version>2.5</apache.commons.io.version>
+        <apache.commons.io.version>2.19.0</apache.commons.io.version>
         <apache.commons.collections.version>4.1</apache.commons.collections.version>
         <apache.commons.lang3.version>3.4</apache.commons.lang3.version>
         <junit.version>4.12</junit.version>
