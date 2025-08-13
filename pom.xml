@@ -40,7 +40,7 @@
         <apache.commons.io.version>2.19.0</apache.commons.io.version>
         <apache.commons.collections.version>4.1</apache.commons.collections.version>
         <apache.commons.lang3.version>3.4</apache.commons.lang3.version>
-        <junit.version>4.12</junit.version>
+        <junit.version>4.13.1</junit.version>
         <gson.version>2.9.0</gson.version>
         <jaxb.version>2.3.2</jaxb.version>
     </properties>
