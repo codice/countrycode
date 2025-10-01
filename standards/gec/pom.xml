@@ -17,7 +17,7 @@
     <parent>
         <artifactId>standards</artifactId>
         <groupId>org.codice.countrycode</groupId>
-        <version>0.2.3-SNAPSHOT</version>
+        <version>0.2.3</version>
     </parent>
 
     <artifactId>gec</artifactId>
