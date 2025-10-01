@@ -144,6 +144,8 @@
                             !com.google.errorprone.annotations.concurrent,
                             !com.sun.management,
                             !org.slf4j.impl,
+                            !android.os,
+                            !com.google.appengine.api.utils,
                             *
                         </Import-Package>
                         <Export-Package>
