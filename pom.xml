@@ -28,13 +28,12 @@
 
         <!-- Plugin Properties -->
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven.compiler.source>1.8</maven.compiler.source>
-        <maven.compiler.target>1.8</maven.compiler.target>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
         <project.report.output.directory>project-info</project.report.output.directory>
 
         <!-- Dependency Properties -->
         <org.slf4j.version>1.7.25</org.slf4j.version>
-        <ddf.version>2.11.3</ddf.version>
         <ddf.support.version>2.3.12</ddf.support.version>
         <guava.version>33.4.0-jre</guava.version>
         <apache.commons.io.version>2.19.0</apache.commons.io.version>
@@ -43,6 +42,8 @@
         <junit.version>4.13.2</junit.version>
         <gson.version>2.13.2</gson.version>
         <jaxb.version>4.0.5</jaxb.version>
+        <spock.version>2.3-groovy-4.0</spock.version>
+        <groovy.version>4.0.24</groovy.version>
     </properties>
 
     <dependencyManagement>
@@ -70,9 +71,15 @@
             <scope>test</scope>
         </dependency>
         <dependency>
-            <groupId>ddf.lib</groupId>
-            <artifactId>spock-shaded</artifactId>
-            <version>${ddf.version}</version>
+            <groupId>org.spockframework</groupId>
+            <artifactId>spock-core</artifactId>
+            <version>${spock.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.groovy</groupId>
+            <artifactId>groovy</artifactId>
+            <version>${groovy.version}</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
