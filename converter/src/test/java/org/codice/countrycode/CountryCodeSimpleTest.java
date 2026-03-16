@@ -21,10 +21,13 @@ import static org.codice.countrycode.CountryCodeSimple.StandardFormat.GENC_3_0_0
 import static org.codice.countrycode.CountryCodeSimple.StandardFormat.ISO_3166_1_ALPHA2;
 import static org.codice.countrycode.CountryCodeSimple.StandardFormat.ISO_3166_1_ALPHA3;
 import static org.codice.countrycode.CountryCodeSimple.StandardFormat.ISO_3166_1_NUMERIC;
-import static org.hamcrest.core.IsEqual.equalTo;
-import static org.junit.Assert.assertThat;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 
 import java.util.Set;
+import org.codice.countrycode.CountryCodeSimple.Format;
+import org.codice.countrycode.CountryCodeSimple.Standard;
 import org.codice.countrycode.CountryCodeSimple.StandardFormat;
 import org.junit.Ignore;
 import org.junit.Test;
@@ -121,6 +124,145 @@ public class CountryCodeSimpleTest {
   @Ignore
   public void testInvalidConversionFromNumeric() {
     Set<String> result = CountryCodeSimple.convert("CH", GENC_3_0_0_NUMERIC, ISO_3166_1_NUMERIC);
-    assertThat(0, equalTo(result.size()));
+    assertEquals(0, result.size());
+  }
+
+  @Test
+  public void testConvertNullReturnsEmpty() {
+    Set<String> result = CountryCodeSimple.convert(null, FIPS_10_4_ALPHA2, ISO_3166_1_ALPHA3);
+    assertNotNull(result);
+    assertTrue(result.isEmpty());
+  }
+
+  @Test
+  public void testConvertEmptyStringReturnsEmpty() {
+    Set<String> result = CountryCodeSimple.convert("", FIPS_10_4_ALPHA2, ISO_3166_1_ALPHA3);
+    assertNotNull(result);
+    assertTrue(result.isEmpty());
+  }
+
+  @Test
+  public void testConvertNumericBetweenStandards() {
+    // Convert using numeric format from GENC to ISO
+    Set<String> result = CountryCodeSimple.convert("156", GENC_3_0_0_NUMERIC, ISO_3166_1_ALPHA3);
+    assertEquals(1, result.size());
+    assertEquals("CHN", result.iterator().next());
+  }
+
+  @Test
+  public void testConvertGencAlpha3ToIso() {
+    Set<String> result = CountryCodeSimple.convert("CHN", GENC_3_0_0_ALPHA3, ISO_3166_1_ALPHA3);
+    assertEquals(1, result.size());
+    assertEquals("CHN", result.iterator().next());
+  }
+
+  @Test
+  public void testConvertGencAlpha2ToFips() {
+    Set<String> result = CountryCodeSimple.convert("CN", GENC_3_0_0_ALPHA2, FIPS_10_4_ALPHA2);
+    assertEquals(1, result.size());
+    assertEquals("CH", result.iterator().next());
+  }
+
+  @Test
+  public void testConvertIsoAlpha2ToGec() {
+    Set<String> result = CountryCodeSimple.convert("CN", ISO_3166_1_ALPHA2, GEC_18_ALPHA2);
+    assertEquals(1, result.size());
+    assertEquals("CH", result.iterator().next());
+  }
+
+  @Test
+  public void testConvertGecToGenc() {
+    Set<String> result = CountryCodeSimple.convert("CH", GEC_18_ALPHA2, GENC_3_0_0_ALPHA3);
+    assertEquals(1, result.size());
+    assertEquals("CHN", result.iterator().next());
+  }
+
+  @Test
+  public void testConvertIsoNumericToIsoAlpha2() {
+    Set<String> result = CountryCodeSimple.convert("156", ISO_3166_1_NUMERIC, ISO_3166_1_ALPHA2);
+    assertEquals(1, result.size());
+    assertEquals("CN", result.iterator().next());
+  }
+
+  @Test
+  public void testConvertIsoNumericToGencAlpha3() {
+    Set<String> result = CountryCodeSimple.convert("156", ISO_3166_1_NUMERIC, GENC_3_0_0_ALPHA3);
+    assertEquals(1, result.size());
+    assertEquals("CHN", result.iterator().next());
+  }
+
+  @Test
+  public void testConvertSameStandardAlpha2ToNumeric() {
+    Set<String> result = CountryCodeSimple.convert("CN", ISO_3166_1_ALPHA2, ISO_3166_1_NUMERIC);
+    assertEquals(1, result.size());
+    assertEquals("156", result.iterator().next());
+  }
+
+  @Test
+  public void testConvertFipsToGenc() {
+    Set<String> result = CountryCodeSimple.convert("CH", FIPS_10_4_ALPHA2, GENC_3_0_0_ALPHA3);
+    assertEquals(1, result.size());
+    assertEquals("CHN", result.iterator().next());
+  }
+
+  @Test
+  public void testConvertFipsToGencAlpha2() {
+    Set<String> result = CountryCodeSimple.convert("CH", FIPS_10_4_ALPHA2, GENC_3_0_0_ALPHA2);
+    assertEquals(1, result.size());
+    assertEquals("CN", result.iterator().next());
+  }
+
+  @Test
+  public void testStandardEnumValues() {
+    for (Standard standard : Standard.values()) {
+      assertNotNull(standard.getName());
+      assertNotNull(standard.getVersion());
+    }
+  }
+
+  @Test
+  public void testFormatEnumToString() {
+    assertEquals("alpha2", Format.ALPHA2.toString());
+    assertEquals("alpha3", Format.ALPHA3.toString());
+    assertEquals("numeric", Format.NUMERIC.toString());
+  }
+
+  @Test
+  public void testStandardFormatGetters() {
+    for (StandardFormat sf : StandardFormat.values()) {
+      assertNotNull(sf.getStandard());
+      assertNotNull(sf.getFormat());
+    }
+  }
+
+  @Test
+  public void testConvertNonExistentCodeReturnsEmpty() {
+    Set<String> result = CountryCodeSimple.convert("ZZZ", GENC_3_0_0_ALPHA3, ISO_3166_1_ALPHA3);
+    assertTrue(result.isEmpty());
+  }
+
+  @Test
+  public void testConvertNonExistentFipsReturnsEmpty() {
+    Set<String> result = CountryCodeSimple.convert("ZZ", FIPS_10_4_ALPHA2, ISO_3166_1_ALPHA3);
+    assertTrue(result.isEmpty());
+  }
+
+  @Test
+  public void testConvertNonExistentGecReturnsEmpty() {
+    Set<String> result = CountryCodeSimple.convert("ZZ", GEC_18_ALPHA2, ISO_3166_1_ALPHA3);
+    assertTrue(result.isEmpty());
+  }
+
+  @Test
+  public void testConvertSameStandardNonExistentReturnsEmpty() {
+    Set<String> result = CountryCodeSimple.convert("ZZZ", ISO_3166_1_ALPHA3, ISO_3166_1_ALPHA2);
+    assertTrue(result.isEmpty());
+  }
+
+  @Test
+  public void testConvertGencNumericToFips() {
+    Set<String> result = CountryCodeSimple.convert("156", GENC_3_0_0_NUMERIC, FIPS_10_4_ALPHA2);
+    assertEquals(1, result.size());
+    assertEquals("CH", result.iterator().next());
   }
 }
