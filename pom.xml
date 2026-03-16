@@ -194,7 +194,7 @@
                 <plugin>
                     <groupId>org.apache.felix</groupId>
                     <artifactId>maven-bundle-plugin</artifactId>
-                    <version>4.2.0</version>
+                    <version>5.1.9</version>
                     <extensions>true</extensions>
                     <configuration>
                         <!-- Disabled OBR to increase build speed -->
