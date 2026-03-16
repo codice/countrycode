@@ -46,10 +46,8 @@ public class CountryCodeConverterTest {
   @Test
   public void testFromAlpha2() {
     CountryCodeConverter converter = new CountryCodeConverter();
-    StandardProvider isoProvider =
-        StandardRegistryImpl.getInstance().lookup("ISO3166", "1");
-    StandardProvider gencProvider =
-        StandardRegistryImpl.getInstance().lookup("GENC", "3.0.0");
+    StandardProvider isoProvider = StandardRegistryImpl.getInstance().lookup("ISO3166", "1");
+    StandardProvider gencProvider = StandardRegistryImpl.getInstance().lookup("GENC", "3.0.0");
 
     Set<CountryCode> result =
         converter.fromAlpha2("CN", isoProvider.getStandard(), gencProvider.getStandard());
@@ -59,10 +57,8 @@ public class CountryCodeConverterTest {
   @Test
   public void testFromAlpha3() {
     CountryCodeConverter converter = new CountryCodeConverter();
-    StandardProvider isoProvider =
-        StandardRegistryImpl.getInstance().lookup("ISO3166", "1");
-    StandardProvider gencProvider =
-        StandardRegistryImpl.getInstance().lookup("GENC", "3.0.0");
+    StandardProvider isoProvider = StandardRegistryImpl.getInstance().lookup("ISO3166", "1");
+    StandardProvider gencProvider = StandardRegistryImpl.getInstance().lookup("GENC", "3.0.0");
 
     Set<CountryCode> result =
         converter.fromAlpha3("CHN", isoProvider.getStandard(), gencProvider.getStandard());
@@ -72,10 +68,8 @@ public class CountryCodeConverterTest {
   @Test
   public void testFromNumeric() {
     CountryCodeConverter converter = new CountryCodeConverter();
-    StandardProvider isoProvider =
-        StandardRegistryImpl.getInstance().lookup("ISO3166", "1");
-    StandardProvider gencProvider =
-        StandardRegistryImpl.getInstance().lookup("GENC", "3.0.0");
+    StandardProvider isoProvider = StandardRegistryImpl.getInstance().lookup("ISO3166", "1");
+    StandardProvider gencProvider = StandardRegistryImpl.getInstance().lookup("GENC", "3.0.0");
 
     Set<CountryCode> result =
         converter.fromNumeric("156", isoProvider.getStandard(), gencProvider.getStandard());
@@ -85,8 +79,7 @@ public class CountryCodeConverterTest {
   @Test
   public void testFromAlpha2SameStandard() {
     CountryCodeConverter converter = new CountryCodeConverter();
-    StandardProvider isoProvider =
-        StandardRegistryImpl.getInstance().lookup("ISO3166", "1");
+    StandardProvider isoProvider = StandardRegistryImpl.getInstance().lookup("ISO3166", "1");
 
     Set<CountryCode> result =
         converter.fromAlpha2("CN", isoProvider.getStandard(), isoProvider.getStandard());
@@ -99,10 +92,8 @@ public class CountryCodeConverterTest {
   @Test
   public void testFromAlpha2NonExistent() {
     CountryCodeConverter converter = new CountryCodeConverter();
-    StandardProvider isoProvider =
-        StandardRegistryImpl.getInstance().lookup("ISO3166", "1");
-    StandardProvider gencProvider =
-        StandardRegistryImpl.getInstance().lookup("GENC", "3.0.0");
+    StandardProvider isoProvider = StandardRegistryImpl.getInstance().lookup("ISO3166", "1");
+    StandardProvider gencProvider = StandardRegistryImpl.getInstance().lookup("GENC", "3.0.0");
 
     Set<CountryCode> result =
         converter.fromAlpha2("ZZ", isoProvider.getStandard(), gencProvider.getStandard());
@@ -112,10 +103,8 @@ public class CountryCodeConverterTest {
   @Test
   public void testFromAlpha3NonExistent() {
     CountryCodeConverter converter = new CountryCodeConverter();
-    StandardProvider isoProvider =
-        StandardRegistryImpl.getInstance().lookup("ISO3166", "1");
-    StandardProvider gencProvider =
-        StandardRegistryImpl.getInstance().lookup("GENC", "3.0.0");
+    StandardProvider isoProvider = StandardRegistryImpl.getInstance().lookup("ISO3166", "1");
+    StandardProvider gencProvider = StandardRegistryImpl.getInstance().lookup("GENC", "3.0.0");
 
     Set<CountryCode> result =
         converter.fromAlpha3("ZZZ", isoProvider.getStandard(), gencProvider.getStandard());
@@ -125,10 +114,8 @@ public class CountryCodeConverterTest {
   @Test
   public void testFromNumericNonExistent() {
     CountryCodeConverter converter = new CountryCodeConverter();
-    StandardProvider isoProvider =
-        StandardRegistryImpl.getInstance().lookup("ISO3166", "1");
-    StandardProvider gencProvider =
-        StandardRegistryImpl.getInstance().lookup("GENC", "3.0.0");
+    StandardProvider isoProvider = StandardRegistryImpl.getInstance().lookup("ISO3166", "1");
+    StandardProvider gencProvider = StandardRegistryImpl.getInstance().lookup("GENC", "3.0.0");
 
     Set<CountryCode> result =
         converter.fromNumeric("999", isoProvider.getStandard(), gencProvider.getStandard());

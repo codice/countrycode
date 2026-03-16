@@ -13,7 +13,6 @@
  */
 package org.codice.countrycode.mapping;
 
-import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
@@ -53,8 +52,7 @@ public class CsvMappingStrategyIntegrationTest {
 
   @Test
   public void testGetMappingForValidCode() {
-    StandardProvider isoProvider =
-        StandardRegistryImpl.getInstance().lookup("ISO3166", "1");
+    StandardProvider isoProvider = StandardRegistryImpl.getInstance().lookup("ISO3166", "1");
     Set<CountryCode> result = strategy.getMappingFor(isoProvider.getStandard(), "CHN");
     assertNotNull(result);
     assertFalse(result.isEmpty());
@@ -62,8 +60,7 @@ public class CsvMappingStrategyIntegrationTest {
 
   @Test
   public void testGetMappingForNonExistentCode() {
-    StandardProvider isoProvider =
-        StandardRegistryImpl.getInstance().lookup("ISO3166", "1");
+    StandardProvider isoProvider = StandardRegistryImpl.getInstance().lookup("ISO3166", "1");
     Set<CountryCode> result = strategy.getMappingFor(isoProvider.getStandard(), "ZZZ");
     assertNotNull(result);
     assertTrue(result.isEmpty());
@@ -95,8 +92,7 @@ public class CsvMappingStrategyIntegrationTest {
 
   @Test
   public void testGetMappingForFips() {
-    StandardProvider fipsProvider =
-        StandardRegistryImpl.getInstance().lookup("FIPS", "10-4");
+    StandardProvider fipsProvider = StandardRegistryImpl.getInstance().lookup("FIPS", "10-4");
     Set<CountryCode> result = strategy.getMappingFor(fipsProvider.getStandard(), "CH");
     assertNotNull(result);
     assertFalse(result.isEmpty());
@@ -104,8 +100,7 @@ public class CsvMappingStrategyIntegrationTest {
 
   @Test
   public void testGetMappingForGenc() {
-    StandardProvider gencProvider =
-        StandardRegistryImpl.getInstance().lookup("GENC", "3.0.0");
+    StandardProvider gencProvider = StandardRegistryImpl.getInstance().lookup("GENC", "3.0.0");
     Set<CountryCode> result = strategy.getMappingFor(gencProvider.getStandard(), "CHN");
     assertNotNull(result);
     assertFalse(result.isEmpty());
@@ -113,8 +108,7 @@ public class CsvMappingStrategyIntegrationTest {
 
   @Test
   public void testGetMappingForGec() {
-    StandardProvider gecProvider =
-        StandardRegistryImpl.getInstance().lookup("GEC", "18");
+    StandardProvider gecProvider = StandardRegistryImpl.getInstance().lookup("GEC", "18");
     Set<CountryCode> result = strategy.getMappingFor(gecProvider.getStandard(), "CH");
     assertNotNull(result);
     assertFalse(result.isEmpty());
@@ -141,8 +135,7 @@ public class CsvMappingStrategyIntegrationTest {
 
   @Test
   public void testMappingResultsExcludeSourceStandard() {
-    StandardProvider isoProvider =
-        StandardRegistryImpl.getInstance().lookup("ISO3166", "1");
+    StandardProvider isoProvider = StandardRegistryImpl.getInstance().lookup("ISO3166", "1");
     Standard isoStandard = isoProvider.getStandard();
     Set<CountryCode> result = strategy.getMappingFor(isoStandard, "CHN");
     for (CountryCode cc : result) {
